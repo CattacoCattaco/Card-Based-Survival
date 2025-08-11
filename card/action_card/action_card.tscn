@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr7y2o0x11714"]
+
+[ext_resource type="Script" uid="uid://bmh72fvgciur6" path="res://card/card.gd" id="1_vglk3"]
+[ext_resource type="Texture2D" uid="uid://dn7hp3txwq57o" path="res://card/card_frame.png" id="2_4cm8c"]
+[ext_resource type="Resource" uid="uid://bjlyo131duohk" path="res://card_data/punch.tres" id="2_mm3vo"]
+[ext_resource type="Theme" uid="uid://b21v52k644p3t" path="res://card/text_bold.tres" id="3_mm3vo"]
+[ext_resource type="Theme" uid="uid://c32yt3yx6glwi" path="res://card/text_normal.tres" id="4_olg7m"]
+
+[node name="CharacterCard" type="Control" node_paths=PackedStringArray("name_label", "effect_label")]
+custom_minimum_size = Vector2(125, 175)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vglk3")
+name_label = NodePath("CardFrame/NameLabel")
+effect_label = NodePath("CardFrame/EffectLabel")
+data = ExtResource("2_mm3vo")
+
+[node name="CardFrame" type="Sprite2D" parent="."]
+texture = ExtResource("2_4cm8c")
+centered = false
+
+[node name="NameLabel" type="Label" parent="CardFrame"]
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 120.0
+offset_bottom = 16.0
+theme = ExtResource("3_mm3vo")
+text = "Punch"
+
+[node name="EffectLabel" type="Label" parent="CardFrame"]
+offset_left = 4.0
+offset_top = 85.0
+offset_right = 120.0
+offset_bottom = 170.0
+theme = ExtResource("4_olg7m")
+text = "Deal damage to any target equal to your strength"
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2

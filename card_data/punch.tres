@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://bjlyo131duohk"]
+
+[ext_resource type="Script" uid="uid://c2ctgqbjt5773" path="res://card_data/card_data.gd" id="1_01h1v"]
+
+[resource]
+script = ExtResource("1_01h1v")
+card_name = "Punch"
+effect_text = "Deal damage to any target equal to your strength."
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

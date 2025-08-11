@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c32yt3yx6glwi"]
+
+[ext_resource type="FontFile" uid="uid://c1u3fdn4ukpym" path="res://card/Pixel Artificer.ttf" id="1_q24jo"]
+
+[resource]
+default_font = ExtResource("1_q24jo")
+default_font_size = 8
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 1
+Label/font_sizes/font_size = 8
+Label/fonts/font = ExtResource("1_q24jo")
