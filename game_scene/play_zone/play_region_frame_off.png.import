@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnndbavuppios"
-path="res://.godot/imported/strength.png-8898b986b414e37b49230be7e99a79b5.ctex"
+uid="uid://c6g3lgar20iu2"
+path="res://.godot/imported/play_region_frame_off.png-55a341e7ab0353ac654895f189d9f765.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://card/character_card/strength.png"
-dest_files=["res://.godot/imported/strength.png-8898b986b414e37b49230be7e99a79b5.ctex"]
+source_file="res://game_scene/play_zone/play_region_frame_off.png"
+dest_files=["res://.godot/imported/play_region_frame_off.png-55a341e7ab0353ac654895f189d9f765.ctex"]
 
 [params]
 

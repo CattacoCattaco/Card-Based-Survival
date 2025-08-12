@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://cc4712hvchri"]
+
+[ext_resource type="Script" uid="uid://c0dp7gr6vdogq" path="res://card_data/character_data/character_data.gd" id="1_0k5dh"]
+
+[resource]
+script = ExtResource("1_0k5dh")
+health = 50
+block = 0
+strength = 5
+energy = 2
+money = 3
+card_name = "Player"
+effect_text = "Plays the game"
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

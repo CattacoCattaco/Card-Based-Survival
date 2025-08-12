@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://hexshmnhcweg"]
+
+[ext_resource type="Script" uid="uid://b2rhto30exwma" path="res://game_scene/hand/hand.gd" id="1_ayl5l"]
+[ext_resource type="Resource" uid="uid://bjlyo131duohk" path="res://card_data/action_data/punch.tres" id="2_030u5"]
+[ext_resource type="PackedScene" uid="uid://b6ewh37v0u6s7" path="res://card/character_card/character_card.tscn" id="3_lpkew"]
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="4_y0vak"]
+[ext_resource type="Resource" uid="uid://cixowmwsl1qad" path="res://card_data/character_data/bear.tres" id="5_wb7tg"]
+[ext_resource type="Script" uid="uid://dis585a1x5bul" path="res://game_scene/play_zone/play_zone.gd" id="6_u5tag"]
+[ext_resource type="Texture2D" uid="uid://c6g3lgar20iu2" path="res://game_scene/play_zone/play_region_frame_off.png" id="7_vy1pm"]
+[ext_resource type="Theme" uid="uid://b21v52k644p3t" path="res://card/text_bold.tres" id="8_wcsgf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7xocg"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[node name="Fight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Hand" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone")]
+custom_minimum_size = Vector2(500, 125)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -499.0
+offset_top = -125.0
+offset_right = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = -50
+alignment = 1
+script = ExtResource("1_ayl5l")
+default_card = ExtResource("2_030u5")
+play_zone = NodePath("../PlayZone")
+
+[node name="PlayerCard" parent="." instance=ExtResource("3_lpkew")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -125.0
+offset_right = 125.0
+grow_vertical = 0
+deck = Array[ExtResource("4_y0vak")]([ExtResource("2_030u5"), ExtResource("2_030u5"), ExtResource("2_030u5"), ExtResource("2_030u5"), ExtResource("2_030u5"), ExtResource("2_030u5")])
+
+[node name="EnemyHolder" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone")]
+custom_minimum_size = Vector2(640, 125)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/separation = 2
+alignment = 1
+script = ExtResource("1_ayl5l")
+card_scene = ExtResource("3_lpkew")
+max_separation = 20
+default_card = ExtResource("5_wb7tg")
+play_zone = NodePath("../PlayZone")
+
+[node name="PlayZone" type="Control" parent="." node_paths=PackedStringArray("frame_sprite", "label")]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_u5tag")
+frame_sprite = NodePath("PlayZoneFrame")
+label = NodePath("PlayZoneLabel")
+
+[node name="PlayZoneFrame" type="Sprite2D" parent="PlayZone"]
+texture = ExtResource("7_vy1pm")
+centered = false
+
+[node name="PlayZoneLabel" type="Label" parent="PlayZone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_wcsgf")
+text = "Play
+Cards
+Here"
+label_settings = SubResource("LabelSettings_7xocg")
+horizontal_alignment = 1
+vertical_alignment = 1

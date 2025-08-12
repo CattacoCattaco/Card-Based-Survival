@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sm3565my84b0"
-path="res://.godot/imported/block.png-436bcbd54ef713e4cbaef60677e07c0d.ctex"
+uid="uid://bsbp37hweews"
+path="res://.godot/imported/map_tile_bg.png-faa0d25579fe34556eae684d92b01363.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://card/character_card/block.png"
-dest_files=["res://.godot/imported/block.png-436bcbd54ef713e4cbaef60677e07c0d.ctex"]
+source_file="res://game_scene/map/map_tile_bg.png"
+dest_files=["res://.godot/imported/map_tile_bg.png-faa0d25579fe34556eae684d92b01363.ctex"]
 
 [params]
 

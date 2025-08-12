@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://cc4712hvchri"]
-
-[ext_resource type="Script" uid="uid://c2ctgqbjt5773" path="res://card_data/card_data.gd" id="1_uvla1"]
-
-[resource]
-script = ExtResource("1_uvla1")
-card_name = "Player"
-effect_text = "Plays the game"
-metadata/_custom_type_script = "uid://c2ctgqbjt5773"

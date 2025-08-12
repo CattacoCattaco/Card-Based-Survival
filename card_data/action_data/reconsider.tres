@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=2 format=3 uid="uid://c5qsvoil8nqo1"]
+
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="1_vyw45"]
+
+[resource]
+script = ExtResource("1_vyw45")
+effect_text = "Discard all of your cards and replace them with new ones."
+card_name = "Reconsider"
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

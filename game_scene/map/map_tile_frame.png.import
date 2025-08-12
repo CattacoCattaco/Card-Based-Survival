@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxmykgpcb6n8i"
-path="res://.godot/imported/energy.png-88ae7dd0303ae41c9961c4f95289487d.ctex"
+uid="uid://dsxmykffeo0p6"
+path="res://.godot/imported/map_tile_frame.png-5d49b21bd3798aa40336408d2fef1b3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://card/character_card/energy.png"
-dest_files=["res://.godot/imported/energy.png-88ae7dd0303ae41c9961c4f95289487d.ctex"]
+source_file="res://game_scene/map/map_tile_frame.png"
+dest_files=["res://.godot/imported/map_tile_frame.png-5d49b21bd3798aa40336408d2fef1b3c.ctex"]
 
 [params]
 
