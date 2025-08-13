@@ -7,7 +7,8 @@ extends Card
 @export var energy_label: Label
 @export var money_label: Label
 
-@export var deck: Array[ActionData]
+@export var fight_deck: Array[ActionData]
+@export var movement_deck: Array[ActionData]
 
 var current_health: int
 var current_energy: int

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dr7y2o0x11714"]
+[gd_scene load_steps=9 format=3 uid="uid://dr7y2o0x11714"]
 
 [ext_resource type="Script" uid="uid://64pbv7crm78r" path="res://card/action_card/action_card.gd" id="1_vglk3"]
 [ext_resource type="Texture2D" uid="uid://dn7hp3txwq57o" path="res://card/card_frame.png" id="2_4cm8c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://crwjv2nkyqlr1" path="res://card/action_card/position_offset.gd" id="3_olg7m"]
 [ext_resource type="Theme" uid="uid://c32yt3yx6glwi" path="res://card/text_normal.tres" id="4_olg7m"]
 [ext_resource type="Texture2D" uid="uid://dugl8dm6yjr6p" path="res://card/card_highlight.png" id="6_mm3vo"]
+[ext_resource type="Texture2D" uid="uid://dmqapvxh6u4jq" path="res://card/art_box_empty.png" id="7_7vgws"]
 
 [node name="ActionCard" type="Control" node_paths=PackedStringArray("effect_label", "position_offset_control", "name_label", "highlight_sprite")]
 custom_minimum_size = Vector2(125, 125)
@@ -38,6 +39,11 @@ offset_bottom = 16.0
 theme = ExtResource("3_mm3vo")
 text = "Health Potion"
 metadata/_edit_use_anchors_ = true
+
+[node name="ArtBox" type="Sprite2D" parent="PositionOffset/CardFrame"]
+position = Vector2(2, 20)
+texture = ExtResource("7_7vgws")
+centered = false
 
 [node name="EffectLabel" type="Label" parent="PositionOffset/CardFrame"]
 offset_left = 4.0

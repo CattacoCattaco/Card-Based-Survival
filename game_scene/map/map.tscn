@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://nanh5p0m00y3"]
+[gd_scene load_steps=15 format=4 uid="uid://nanh5p0m00y3"]
 
 [ext_resource type="Texture2D" uid="uid://bsbp37hweews" path="res://game_scene/map/map_tile_bg.png" id="1_j10tu"]
 [ext_resource type="Texture2D" uid="uid://dsxmykffeo0p6" path="res://game_scene/map/map_tile_frame.png" id="2_cjxfg"]
 [ext_resource type="PackedScene" uid="uid://b6ewh37v0u6s7" path="res://card/character_card/character_card.tscn" id="2_x2tlu"]
-[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="3_cjxfg"]
-[ext_resource type="Resource" uid="uid://bjlyo131duohk" path="res://card_data/action_data/punch.tres" id="4_mul44"]
+[ext_resource type="Script" uid="uid://hsnp44p8tvqf" path="res://game_scene/deck_manager/player_deck_manager/player_deck_manager.gd" id="3_mul44"]
 [ext_resource type="Script" uid="uid://b2rhto30exwma" path="res://game_scene/hand/hand.gd" id="5_fqlyv"]
 [ext_resource type="Script" uid="uid://dis585a1x5bul" path="res://game_scene/play_zone/play_zone.gd" id="6_cx7ym"]
 [ext_resource type="Resource" uid="uid://cnwrqvqybg5ar" path="res://card_data/action_data/move_north.tres" id="6_x2tlu"]
@@ -60,9 +59,12 @@ anchor_bottom = 1.0
 offset_top = -125.0
 offset_right = 125.0
 grow_vertical = 0
-deck = Array[ExtResource("3_cjxfg")]([ExtResource("4_mul44"), ExtResource("4_mul44"), ExtResource("4_mul44"), ExtResource("4_mul44"), ExtResource("4_mul44"), ExtResource("4_mul44")])
 
-[node name="Hand" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone")]
+[node name="PlayerDeckManager" type="Node" parent="PlayerCard" node_paths=PackedStringArray("player_card")]
+script = ExtResource("3_mul44")
+player_card = NodePath("..")
+
+[node name="Hand" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone", "deck_manager")]
 custom_minimum_size = Vector2(500, 125)
 layout_mode = 1
 anchors_preset = 3
@@ -80,6 +82,7 @@ alignment = 1
 script = ExtResource("5_fqlyv")
 default_card = ExtResource("6_x2tlu")
 play_zone = NodePath("../PlayZone")
+deck_manager = NodePath("../PlayerCard/PlayerDeckManager")
 
 [node name="PlayZone" type="Control" parent="." node_paths=PackedStringArray("frame_sprite", "label")]
 custom_minimum_size = Vector2(70, 70)

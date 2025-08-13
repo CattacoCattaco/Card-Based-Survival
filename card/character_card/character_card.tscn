@@ -1,13 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6ewh37v0u6s7"]
+[gd_scene load_steps=17 format=3 uid="uid://b6ewh37v0u6s7"]
 
 [ext_resource type="Script" uid="uid://dhorba14jydwy" path="res://card/character_card/character_card.gd" id="1_0c0xn"]
 [ext_resource type="Texture2D" uid="uid://dn7hp3txwq57o" path="res://card/card_frame.png" id="1_kteoe"]
 [ext_resource type="Theme" uid="uid://b21v52k644p3t" path="res://card/text_bold.tres" id="2_0c0xn"]
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="2_0xq84"]
 [ext_resource type="Resource" uid="uid://cc4712hvchri" path="res://card_data/character_data/player.tres" id="2_t6p7o"]
+[ext_resource type="Resource" uid="uid://bjlyo131duohk" path="res://card_data/action_data/punch.tres" id="3_oufd5"]
 [ext_resource type="Theme" uid="uid://c32yt3yx6glwi" path="res://card/text_normal.tres" id="3_t6p7o"]
+[ext_resource type="Resource" uid="uid://cnwrqvqybg5ar" path="res://card_data/action_data/move_north.tres" id="4_pabbr"]
+[ext_resource type="Resource" uid="uid://cigifp8q57epv" path="res://card_data/action_data/move_east.tres" id="5_g5htm"]
 [ext_resource type="Texture2D" uid="uid://y4251yxmobyu" path="res://card/character_card/stats.png" id="5_hoxil"]
 [ext_resource type="Shader" uid="uid://dtfhal85e77hv" path="res://card/color_swap.gdshader" id="6_5dsc1"]
+[ext_resource type="Resource" uid="uid://k6v3jfk17w1d" path="res://card_data/action_data/move_south.tres" id="6_f83ag"]
+[ext_resource type="Resource" uid="uid://bmm14iddl7i1p" path="res://card_data/action_data/move_west.tres" id="7_uyitp"]
 [ext_resource type="Texture2D" uid="uid://dugl8dm6yjr6p" path="res://card/card_highlight.png" id="8_cn0fn"]
+[ext_resource type="Texture2D" uid="uid://dmqapvxh6u4jq" path="res://card/art_box_empty.png" id="8_kteoe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tik55"]
 shader = ExtResource("6_5dsc1")
@@ -24,6 +31,8 @@ block_label = NodePath("CardFrame/Stats/BlockLabel")
 strength_label = NodePath("CardFrame/Stats/StrengthLabel")
 energy_label = NodePath("CardFrame/Stats/EnergyLabel")
 money_label = NodePath("CardFrame/Stats/MoneyLabel")
+fight_deck = Array[ExtResource("2_0xq84")]([ExtResource("3_oufd5"), ExtResource("3_oufd5"), ExtResource("3_oufd5"), ExtResource("3_oufd5"), ExtResource("3_oufd5"), ExtResource("3_oufd5")])
+movement_deck = Array[ExtResource("2_0xq84")]([ExtResource("4_pabbr"), ExtResource("5_g5htm"), ExtResource("6_f83ag"), ExtResource("7_uyitp")])
 name_label = NodePath("CardFrame/NameLabel")
 highlight_sprite = NodePath("CardHighlight")
 data = ExtResource("2_t6p7o")
@@ -39,6 +48,11 @@ offset_right = 120.0
 offset_bottom = 16.0
 theme = ExtResource("2_0c0xn")
 text = "A Grizly Bear"
+
+[node name="ArtBox" type="Sprite2D" parent="CardFrame"]
+position = Vector2(2, 20)
+texture = ExtResource("8_kteoe")
+centered = false
 
 [node name="Stats" type="Sprite2D" parent="CardFrame"]
 material = SubResource("ShaderMaterial_tik55")

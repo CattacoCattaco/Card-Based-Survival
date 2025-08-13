@@ -1,4 +1,4 @@
-class_name PositionOffset
+class_name ActionCardPositionOffset
 extends Control
 
 @export var action_card: ActionCard
@@ -13,7 +13,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	set_drag_preview(preview)
 	action_card.hand.play_zone.drag_preview = preview
 	
-	hide()
+	action_card.hide()
 	action_card.is_dragging = true
 	
 	action_card.hand.play_zone.drag_hapenning = true

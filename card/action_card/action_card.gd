@@ -4,7 +4,7 @@ extends Card
 const CARD_SCENE: PackedScene = preload("res://card/action_card/action_card.tscn")
 
 @export var effect_label: Label
-@export var position_offset_control: Control
+@export var position_offset_control: ActionCardPositionOffset
 
 var is_dragging: bool
 
@@ -51,6 +51,7 @@ func _load_data(new_data: CardData) -> void:
 
 func play() -> void:
 	hand.cards.erase(self)
+	hand.deck_manager.used_cards.append(data)
 	
 	hand.draw_cards(1)
 	

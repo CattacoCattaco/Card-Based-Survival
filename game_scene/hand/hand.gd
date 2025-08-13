@@ -6,10 +6,11 @@ extends HBoxContainer
 @export var cards: Array[Card] = []
 @export var default_card: CardData
 @export var play_zone: PlayZone
+@export var deck_manager: DeckManager
 
 
 func _ready() -> void:
-	draw_cards(5)
+	draw_cards(4)
 
 
 func draw_cards(amount: int) -> void:
@@ -26,7 +27,7 @@ func _draw_card() -> void:
 	cards.append(card)
 	
 	card.hand = self
-	card._load_data(default_card)
+	card._load_data(deck_manager._get_next_card())
 
 
 func recalc_card_separation() -> void:

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=2 format=3 uid="uid://k6v3jfk17w1d"]
+
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="1_0n4r7"]
+
+[resource]
+script = ExtResource("1_0n4r7")
+effect_text = "Move one space south."
+card_name = "Move South"
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

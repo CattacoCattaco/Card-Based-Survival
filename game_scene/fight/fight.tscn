@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://hexshmnhcweg"]
+[gd_scene load_steps=11 format=3 uid="uid://hexshmnhcweg"]
 
 [ext_resource type="Script" uid="uid://b2rhto30exwma" path="res://game_scene/hand/hand.gd" id="1_ayl5l"]
 [ext_resource type="Resource" uid="uid://bjlyo131duohk" path="res://card_data/action_data/punch.tres" id="2_030u5"]
 [ext_resource type="PackedScene" uid="uid://b6ewh37v0u6s7" path="res://card/character_card/character_card.tscn" id="3_lpkew"]
-[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="4_y0vak"]
+[ext_resource type="Script" uid="uid://hsnp44p8tvqf" path="res://game_scene/deck_manager/player_deck_manager/player_deck_manager.gd" id="4_ayl5l"]
 [ext_resource type="Resource" uid="uid://cixowmwsl1qad" path="res://card_data/character_data/bear.tres" id="5_wb7tg"]
+[ext_resource type="Script" uid="uid://dvrhq6x4i8ojs" path="res://game_scene/deck_manager/enemy_queue_manager/enemy_queue_manager.gd" id="6_030u5"]
 [ext_resource type="Script" uid="uid://dis585a1x5bul" path="res://game_scene/play_zone/play_zone.gd" id="6_u5tag"]
 [ext_resource type="Texture2D" uid="uid://c6g3lgar20iu2" path="res://game_scene/play_zone/play_region_frame_off.png" id="7_vy1pm"]
 [ext_resource type="Theme" uid="uid://b21v52k644p3t" path="res://card/text_bold.tres" id="8_wcsgf"]
@@ -50,7 +51,11 @@ anchor_bottom = 1.0
 offset_top = -125.0
 offset_right = 125.0
 grow_vertical = 0
-deck = Array[ExtResource("4_y0vak")]([ExtResource("2_030u5"), ExtResource("2_030u5"), ExtResource("2_030u5"), ExtResource("2_030u5"), ExtResource("2_030u5"), ExtResource("2_030u5")])
+
+[node name="PlayerDeckManager" type="Node" parent="PlayerCard" node_paths=PackedStringArray("player_card")]
+script = ExtResource("4_ayl5l")
+player_card = NodePath("..")
+mode = 1
 
 [node name="EnemyHolder" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone")]
 custom_minimum_size = Vector2(640, 125)
@@ -65,6 +70,10 @@ card_scene = ExtResource("3_lpkew")
 max_separation = 20
 default_card = ExtResource("5_wb7tg")
 play_zone = NodePath("../PlayZone")
+
+[node name="EnemyQueueManager" type="Node" parent="EnemyHolder"]
+script = ExtResource("6_030u5")
+metadata/_custom_type_script = "uid://cnqid5mmpep1t"
 
 [node name="PlayZone" type="Control" parent="." node_paths=PackedStringArray("frame_sprite", "label")]
 custom_minimum_size = Vector2(70, 70)
