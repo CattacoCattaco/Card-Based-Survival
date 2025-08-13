@@ -92,7 +92,7 @@ default_card = ExtResource("6_x2tlu")
 play_zone = NodePath("../PlayZone")
 deck_manager = NodePath("../PlayerCard/PlayerDeckManager")
 
-[node name="PlayZone" type="Control" parent="." node_paths=PackedStringArray("frame_sprite", "label")]
+[node name="PlayZone" type="Control" parent="." node_paths=PackedStringArray("frame_sprite", "label", "map_BG")]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
 anchors_preset = 6
@@ -108,6 +108,7 @@ grow_vertical = 2
 script = ExtResource("6_cx7ym")
 frame_sprite = NodePath("PlayZoneFrame")
 label = NodePath("PlayZoneLabel")
+map_BG = NodePath("../MapBG")
 
 [node name="PlayZoneFrame" type="Sprite2D" parent="PlayZone"]
 texture = ExtResource("7_4w4tj")

@@ -3,6 +3,7 @@ extends Control
 
 @export var frame_sprite: Sprite2D
 @export var label: Label
+@export var map_BG: MapBG
 
 var drag_hapenning: bool = false
 var drag_preview: ActionCard

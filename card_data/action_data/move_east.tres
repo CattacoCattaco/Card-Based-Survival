@@ -1,9 +1,18 @@
-[gd_resource type="Resource" script_class="ActionData" load_steps=2 format=3 uid="uid://cigifp8q57epv"]
+[gd_resource type="Resource" script_class="ActionData" load_steps=5 format=3 uid="uid://cigifp8q57epv"]
 
 [ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="1_f8j36"]
+[ext_resource type="Script" uid="uid://c0gtblaffcrid" path="res://card_data/action_data/action_effect/action_effect.gd" id="1_vc2lv"]
+[ext_resource type="Script" uid="uid://51j4pv7l3d2u" path="res://card_data/action_data/action_effect/move_effect.gd" id="2_o6akl"]
+
+[sub_resource type="Resource" id="Resource_7u4qi"]
+script = ExtResource("2_o6akl")
+direction = 1
+amount = 1
+metadata/_custom_type_script = "uid://51j4pv7l3d2u"
 
 [resource]
 script = ExtResource("1_f8j36")
 effect_text = "Move one space east."
+effects = Array[ExtResource("1_vc2lv")]([SubResource("Resource_7u4qi")])
 card_name = "Move East"
 metadata/_custom_type_script = "uid://c2ctgqbjt5773"

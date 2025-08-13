@@ -40,17 +40,20 @@ func display() -> void:
 
 
 func move_up() -> void:
-	for visible_object in visible_objects:
-		if visible_object.position.y > 0:
-			visible_object.position.y -= 32
+	player.pos.y -= 1
+	
+	var old_visible_objects: Array[MapObject] = visible_objects.duplicate()
+	for visible_object in old_visible_objects:
+		if visible_object.position.y < BOTTOM_RIGHT.y:
+			visible_object.position.y += 32
 		else:
-			visible_object.queue_free()
 			visible_objects.erase(visible_object)
+			visible_object.queue_free()
 	
 	for map_pos in objects:
 		var adjusted_pos: Vector2i = (map_pos - player.pos) * 32 + CENTER
 		
-		if adjusted_pos.y == BOTTOM_RIGHT.y:
+		if adjusted_pos.y == 0 and pos_visible(adjusted_pos):
 			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
 			add_child(object)
 			visible_objects.append(object)
@@ -61,17 +64,20 @@ func move_up() -> void:
 
 
 func move_left() -> void:
-	for visible_object in visible_objects:
-		if visible_object.position.x > 0:
-			visible_object.position.x -= 32
+	player.pos.x -= 1
+	
+	var old_visible_objects: Array[MapObject] = visible_objects.duplicate()
+	for visible_object in old_visible_objects:
+		if visible_object.position.x < BOTTOM_RIGHT.x:
+			visible_object.position.x += 32
 		else:
-			visible_object.queue_free()
 			visible_objects.erase(visible_object)
+			visible_object.queue_free()
 	
 	for map_pos in objects:
 		var adjusted_pos: Vector2i = (map_pos - player.pos) * 32 + CENTER
 		
-		if adjusted_pos.x == BOTTOM_RIGHT.x:
+		if adjusted_pos.x == 0 and pos_visible(adjusted_pos):
 			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
 			add_child(object)
 			visible_objects.append(object)
@@ -81,19 +87,21 @@ func move_left() -> void:
 			object.set_sprite(objects[map_pos])
 
 
-
 func move_down() -> void:
-	for visible_object in visible_objects:
-		if visible_object.position.y < BOTTOM_RIGHT.y:
+	player.pos.y += 1
+	
+	var old_visible_objects: Array[MapObject] = visible_objects.duplicate()
+	for visible_object in old_visible_objects:
+		if visible_object.position.y > 0:
 			visible_object.position.y -= 32
 		else:
-			visible_object.queue_free()
 			visible_objects.erase(visible_object)
+			visible_object.queue_free()
 	
 	for map_pos in objects:
 		var adjusted_pos: Vector2i = (map_pos - player.pos) * 32 + CENTER
 		
-		if adjusted_pos.y == 0:
+		if adjusted_pos.y == BOTTOM_RIGHT.y and pos_visible(adjusted_pos):
 			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
 			add_child(object)
 			visible_objects.append(object)
@@ -104,17 +112,20 @@ func move_down() -> void:
 
 
 func move_right() -> void:
-	for visible_object in visible_objects:
-		if visible_object.position.x < BOTTOM_RIGHT.x:
+	player.pos.x += 1
+	
+	var old_visible_objects: Array[MapObject] = visible_objects.duplicate()
+	for visible_object in old_visible_objects:
+		if visible_object.position.x > 0:
 			visible_object.position.x -= 32
 		else:
-			visible_object.queue_free()
 			visible_objects.erase(visible_object)
+			visible_object.queue_free()
 	
 	for map_pos in objects:
 		var adjusted_pos: Vector2i = (map_pos - player.pos) * 32 + CENTER
 		
-		if adjusted_pos.x == 0:
+		if adjusted_pos.x == BOTTOM_RIGHT.x and pos_visible(adjusted_pos):
 			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
 			add_child(object)
 			visible_objects.append(object)
@@ -122,3 +133,7 @@ func move_right() -> void:
 			object.position = adjusted_pos
 			object.pos = map_pos
 			object.set_sprite(objects[map_pos])
+
+
+func pos_visible(pos: Vector2i) -> bool:
+	return pos.x >= 0 and pos.y >= 0 and pos.x <= BOTTOM_RIGHT.x and pos.y <= BOTTOM_RIGHT.y

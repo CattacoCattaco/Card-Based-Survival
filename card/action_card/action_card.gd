@@ -53,6 +53,9 @@ func play() -> void:
 	hand.cards.erase(self)
 	hand.deck_manager.used_cards.append(data)
 	
+	for effect: ActionEffect in data.effects:
+		effect._resolve(self)
+	
 	hand.draw_cards(1)
 	
 	queue_free()
