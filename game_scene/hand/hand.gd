@@ -1,16 +1,26 @@
 class_name Hand
 extends HBoxContainer
 
+enum Mode {
+	ACTIONS,
+	ENEMIES,
+}
+
 @export var card_scene: PackedScene = preload("res://card/action_card/action_card.tscn")
 @export var max_separation: int = 5
 @export var cards: Array[Card] = []
 @export var default_card: CardData
 @export var play_zone: PlayZone
 @export var deck_manager: DeckManager
+@export var mode: Mode
 
 
 func _ready() -> void:
-	draw_cards(4)
+	match mode:
+		Mode.ACTIONS:
+			draw_cards(4)
+		Mode.ENEMIES:
+			draw_cards(len(deck_manager.enemies))
 
 
 func draw_cards(amount: int) -> void:

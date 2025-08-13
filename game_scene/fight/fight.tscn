@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://hexshmnhcweg"]
+[gd_scene load_steps=12 format=3 uid="uid://hexshmnhcweg"]
 
 [ext_resource type="Script" uid="uid://b2rhto30exwma" path="res://game_scene/hand/hand.gd" id="1_ayl5l"]
-[ext_resource type="Resource" uid="uid://bjlyo131duohk" path="res://card_data/action_data/punch.tres" id="2_030u5"]
+[ext_resource type="Script" uid="uid://gbhlwdjlhlrn" path="res://game_scene/fight/fight.gd" id="1_lpkew"]
+[ext_resource type="Resource" uid="uid://bjlyo131duohk" path="res://card_data/action_data/combat_actions/punch.tres" id="2_030u5"]
 [ext_resource type="PackedScene" uid="uid://b6ewh37v0u6s7" path="res://card/character_card/character_card.tscn" id="3_lpkew"]
 [ext_resource type="Script" uid="uid://hsnp44p8tvqf" path="res://game_scene/deck_manager/player_deck_manager/player_deck_manager.gd" id="4_ayl5l"]
-[ext_resource type="Resource" uid="uid://cixowmwsl1qad" path="res://card_data/character_data/bear.tres" id="5_wb7tg"]
+[ext_resource type="Resource" uid="uid://cixowmwsl1qad" path="res://card_data/character_data/enemy_characters/bear.tres" id="5_wb7tg"]
 [ext_resource type="Script" uid="uid://dvrhq6x4i8ojs" path="res://game_scene/deck_manager/enemy_queue_manager/enemy_queue_manager.gd" id="6_030u5"]
 [ext_resource type="Script" uid="uid://dis585a1x5bul" path="res://game_scene/play_zone/play_zone.gd" id="6_u5tag"]
 [ext_resource type="Texture2D" uid="uid://c6g3lgar20iu2" path="res://game_scene/play_zone/play_region_frame_off.png" id="7_vy1pm"]
@@ -14,7 +15,7 @@
 font_size = 12
 font_color = Color(0, 0, 0, 1)
 
-[node name="Fight" type="Control"]
+[node name="Fight" type="Control" node_paths=PackedStringArray("enemy_queue_manager")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,8 +24,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_lpkew")
+enemy_queue_manager = NodePath("EnemyHolder/EnemyQueueManager")
 
-[node name="Hand" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone")]
+[node name="Hand" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone", "deck_manager")]
 custom_minimum_size = Vector2(500, 125)
 layout_mode = 1
 anchors_preset = 3
@@ -42,6 +45,12 @@ alignment = 1
 script = ExtResource("1_ayl5l")
 default_card = ExtResource("2_030u5")
 play_zone = NodePath("../PlayZone")
+deck_manager = NodePath("PlayerDeckManager")
+
+[node name="PlayerDeckManager" type="Node" parent="Hand" node_paths=PackedStringArray("player_card")]
+script = ExtResource("4_ayl5l")
+player_card = NodePath("../../PlayerCard")
+mode = 1
 
 [node name="PlayerCard" parent="." instance=ExtResource("3_lpkew")]
 layout_mode = 1
@@ -52,12 +61,7 @@ offset_top = -125.0
 offset_right = 125.0
 grow_vertical = 0
 
-[node name="PlayerDeckManager" type="Node" parent="PlayerCard" node_paths=PackedStringArray("player_card")]
-script = ExtResource("4_ayl5l")
-player_card = NodePath("..")
-mode = 1
-
-[node name="EnemyHolder" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone")]
+[node name="EnemyHolder" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone", "deck_manager")]
 custom_minimum_size = Vector2(640, 125)
 layout_mode = 1
 anchors_preset = 10
@@ -70,6 +74,8 @@ card_scene = ExtResource("3_lpkew")
 max_separation = 20
 default_card = ExtResource("5_wb7tg")
 play_zone = NodePath("../PlayZone")
+deck_manager = NodePath("EnemyQueueManager")
+mode = 1
 
 [node name="EnemyQueueManager" type="Node" parent="EnemyHolder"]
 script = ExtResource("6_030u5")
