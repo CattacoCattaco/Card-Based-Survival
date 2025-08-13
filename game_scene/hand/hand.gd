@@ -1,6 +1,9 @@
 class_name Hand
 extends HBoxContainer
 
+@warning_ignore("unused_signal")
+signal target_found(target: Card)
+
 enum Mode {
 	ACTIONS,
 	ENEMIES,
@@ -42,6 +45,7 @@ func _draw_card() -> void:
 
 func recalc_card_separation() -> void:
 	var combined_width: int = 125 * len(cards)
+	@warning_ignore("narrowing_conversion")
 	var unused_space: int = custom_minimum_size.x - combined_width
 	var separation_for_fill: int = floori(unused_space / (len(cards) - 1.0))
 	

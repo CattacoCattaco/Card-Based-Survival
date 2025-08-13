@@ -3,7 +3,11 @@ extends Control
 
 @export var frame_sprite: Sprite2D
 @export var label: Label
+
+@export var player_card: CharacterCard
 @export var map_BG: MapBG
+@export var enemy_holder: Hand
+@export var fight: Fight
 
 var drag_hapenning: bool = false
 var drag_preview: ActionCard
@@ -26,11 +30,11 @@ func _on_mouse_exited() -> void:
 		unhighlight()
 
 
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	return data is ActionCard
 
 
-func _drop_data(at_position: Vector2, data: Variant) -> void:
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	data.play()
 
 

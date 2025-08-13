@@ -15,7 +15,7 @@
 font_size = 12
 font_color = Color(0, 0, 0, 1)
 
-[node name="Fight" type="Control" node_paths=PackedStringArray("enemy_queue_manager")]
+[node name="Fight" type="Control" node_paths=PackedStringArray("enemy_queue_manager", "play_zone")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +26,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_lpkew")
 enemy_queue_manager = NodePath("EnemyHolder/EnemyQueueManager")
+play_zone = NodePath("PlayZone")
 
 [node name="Hand" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone", "deck_manager")]
 custom_minimum_size = Vector2(500, 125)
@@ -81,7 +82,7 @@ mode = 1
 script = ExtResource("6_030u5")
 metadata/_custom_type_script = "uid://cnqid5mmpep1t"
 
-[node name="PlayZone" type="Control" parent="." node_paths=PackedStringArray("frame_sprite", "label")]
+[node name="PlayZone" type="Control" parent="." node_paths=PackedStringArray("frame_sprite", "label", "player_card", "enemy_holder", "fight")]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
 anchors_preset = 8
@@ -98,6 +99,9 @@ grow_vertical = 2
 script = ExtResource("6_u5tag")
 frame_sprite = NodePath("PlayZoneFrame")
 label = NodePath("PlayZoneLabel")
+player_card = NodePath("../PlayerCard")
+enemy_holder = NodePath("../EnemyHolder")
+fight = NodePath("..")
 
 [node name="PlayZoneFrame" type="Sprite2D" parent="PlayZone"]
 texture = ExtResource("7_vy1pm")

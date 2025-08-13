@@ -1,8 +1,6 @@
 class_name ActionCard
 extends Card
 
-const CARD_SCENE: PackedScene = preload("res://card/action_card/action_card.tscn")
-
 @export var effect_label: Label
 @export var position_offset_control: ActionCardPositionOffset
 
@@ -53,8 +51,13 @@ func play() -> void:
 	hand.cards.erase(self)
 	hand.deck_manager.used_cards.append(data)
 	
+	hand.play_zone.drag_hapenning = false
+	hand.play_zone.drag_preview = null
+	hand.play_zone.unhighlight()
+	
 	for effect: ActionEffect in data.effects:
-		effect._resolve(self)
+		@warning_ignore("redundant_await")
+		await effect._resolve(self)
 	
 	hand.draw_cards(1)
 	

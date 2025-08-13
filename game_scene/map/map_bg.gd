@@ -5,7 +5,7 @@ const MAP_OBJECT_SCENE: PackedScene = preload("res://game_scene/map/map_objects/
 const CENTER := Vector2i(256, 96)
 const BOTTOM_RIGHT := Vector2i(512, 192)
 
-@export var map_control: Control
+@export var map_control: Map
 @export var objects: Dictionary[Vector2i, Vector2i] = {}
 
 var player: MapObject
@@ -109,7 +109,7 @@ func move_down() -> void:
 		var visible_object: MapObject = visible_objects[pos]
 		
 		if visible_object.position.y > 0:
-			visible_object.position.y += 32
+			visible_object.position.y -= 32
 		else:
 			visible_object.queue_free()
 			visible_objects.erase(pos)
@@ -138,7 +138,7 @@ func move_right() -> void:
 		var visible_object: MapObject = visible_objects[pos]
 		
 		if visible_object.position.x > 0:
-			visible_object.position.x += 32
+			visible_object.position.x -= 32
 		else:
 			visible_object.queue_free()
 			visible_objects.erase(pos)
@@ -163,5 +163,6 @@ func pos_visible(pos: Vector2i) -> bool:
 func load_fight_scene(enemies: Array[CharacterData]) -> void:
 	var fight_scene: Fight = preload("res://game_scene/fight/fight.tscn").instantiate()
 	fight_scene.enemy_queue_manager.enemies = enemies
+	fight_scene.map_scene = map_control
 	get_tree().root.add_child(fight_scene)
 	get_tree().root.remove_child(map_control)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6ewh37v0u6s7"]
+[gd_scene load_steps=18 format=3 uid="uid://b6ewh37v0u6s7"]
 
 [ext_resource type="Script" uid="uid://dhorba14jydwy" path="res://card/character_card/character_card.gd" id="1_0c0xn"]
 [ext_resource type="Texture2D" uid="uid://dn7hp3txwq57o" path="res://card/card_frame.png" id="1_kteoe"]
@@ -15,17 +15,19 @@
 [ext_resource type="Resource" uid="uid://bmm14iddl7i1p" path="res://card_data/action_data/movement_actions/move_west.tres" id="7_uyitp"]
 [ext_resource type="Texture2D" uid="uid://dugl8dm6yjr6p" path="res://card/card_highlight.png" id="8_cn0fn"]
 [ext_resource type="Texture2D" uid="uid://dmqapvxh6u4jq" path="res://card/art_box_empty.png" id="8_kteoe"]
+[ext_resource type="Texture2D" uid="uid://csjka1uqs7ynx" path="res://card/character_card/target_crosshare.png" id="16_oufd5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tik55"]
 shader = ExtResource("6_5dsc1")
 shader_parameter/replaced_color = Vector4(0, 1, 0, 1)
 shader_parameter/new_color = Vector4(1, 1, 0, 1)
 
-[node name="CharacterCard" type="Control" node_paths=PackedStringArray("health_label", "block_label", "strength_label", "energy_label", "money_label", "name_label", "highlight_sprite")]
+[node name="CharacterCard" type="Control" node_paths=PackedStringArray("target_sprite", "health_label", "block_label", "strength_label", "energy_label", "money_label", "name_label", "highlight_sprite")]
 custom_minimum_size = Vector2(125, 125)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_0c0xn")
+target_sprite = NodePath("TargetCrosshare")
 health_label = NodePath("CardFrame/Stats/HealthLabel")
 block_label = NodePath("CardFrame/Stats/BlockLabel")
 strength_label = NodePath("CardFrame/Stats/StrengthLabel")
@@ -102,4 +104,9 @@ text = "12/34"
 [node name="CardHighlight" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("8_cn0fn")
+centered = false
+
+[node name="TargetCrosshare" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("16_oufd5")
 centered = false

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_u5qob")
-health = 30
+health = 15
 block = 3
 strength = 0
 energy = 1

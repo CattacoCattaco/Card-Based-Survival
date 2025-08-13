@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://cixowmwsl1qad"]
 
-[ext_resource type="Script" uid="uid://c0dp7gr6vdogq" path="res://card_data/character_data/character_data.gd" id="1_iqcgd"]
+[ext_resource type="Script" uid="uid://c0dp7gr6vdogq" path="res://card_data/character_data/character_data.gd" id="1_00gby"]
 
 [resource]
-script = ExtResource("1_iqcgd")
-health = 40
+script = ExtResource("1_00gby")
+health = 30
 block = 2
 strength = 6
 energy = 1
