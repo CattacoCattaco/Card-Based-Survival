@@ -49,7 +49,8 @@ func _load_data(new_data: CardData) -> void:
 
 func play() -> void:
 	hand.cards.erase(self)
-	hand.deck_manager.used_cards.append(data)
+	if from_deck:
+		hand.deck_manager.used_cards.append(data)
 	
 	hand.play_zone.drag_hapenning = false
 	hand.play_zone.drag_preview = null
@@ -58,6 +59,7 @@ func play() -> void:
 	for effect: ActionEffect in data.effects:
 		await effect._resolve(self)
 	
-	hand.draw_cards(1)
+	if data.replace:
+		hand.draw_cards(1)
 	
 	queue_free()

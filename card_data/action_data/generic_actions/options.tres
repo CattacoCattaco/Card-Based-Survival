@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="ActionData" load_steps=2 format=3 uid="uid://byowuleie3fbg"]
+[gd_resource type="Resource" script_class="ActionData" load_steps=3 format=3 uid="uid://byowuleie3fbg"]
 
+[ext_resource type="Script" uid="uid://c0gtblaffcrid" path="res://card_data/action_data/action_effect/action_effect.gd" id="1_encol"]
 [ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="1_y2q4n"]
 
 [resource]
 script = ExtResource("1_y2q4n")
 effect_text = "Deal damage equal to your strength to any target."
+effects = Array[ExtResource("1_encol")]([])
+replace = false
 card_name = "Punch"
 metadata/_custom_type_script = "uid://c2ctgqbjt5773"

@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://hexshmnhcweg"]
+[gd_scene load_steps=16 format=3 uid="uid://hexshmnhcweg"]
 
 [ext_resource type="Script" uid="uid://b2rhto30exwma" path="res://game_scene/hand/hand.gd" id="1_ayl5l"]
 [ext_resource type="Script" uid="uid://gbhlwdjlhlrn" path="res://game_scene/fight/fight.gd" id="1_lpkew"]
 [ext_resource type="Resource" uid="uid://bjlyo131duohk" path="res://card_data/action_data/combat_actions/punch.tres" id="2_030u5"]
 [ext_resource type="PackedScene" uid="uid://b6ewh37v0u6s7" path="res://card/character_card/character_card.tscn" id="3_lpkew"]
+[ext_resource type="Script" uid="uid://c2ctgqbjt5773" path="res://card_data/card_data.gd" id="3_vy1pm"]
 [ext_resource type="Script" uid="uid://hsnp44p8tvqf" path="res://game_scene/deck_manager/player_deck_manager/player_deck_manager.gd" id="4_ayl5l"]
-[ext_resource type="Resource" uid="uid://cixowmwsl1qad" path="res://card_data/character_data/enemy_characters/bear.tres" id="5_wb7tg"]
+[ext_resource type="Resource" uid="uid://c5qsvoil8nqo1" path="res://card_data/action_data/generic_actions/reconsider.tres" id="4_wcsgf"]
 [ext_resource type="Script" uid="uid://dvrhq6x4i8ojs" path="res://game_scene/deck_manager/enemy_queue_manager/enemy_queue_manager.gd" id="6_030u5"]
 [ext_resource type="Script" uid="uid://dis585a1x5bul" path="res://game_scene/play_zone/play_zone.gd" id="6_u5tag"]
 [ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="6_vy1pm"]
@@ -47,7 +48,7 @@ grow_vertical = 0
 theme_override_constants/separation = -50
 alignment = 1
 script = ExtResource("1_ayl5l")
-default_card = ExtResource("2_030u5")
+always_available_cards = Array[ExtResource("3_vy1pm")]([ExtResource("4_wcsgf")])
 play_zone = NodePath("../PlayZone")
 deck_manager = NodePath("PlayerDeckManager")
 
@@ -78,7 +79,6 @@ alignment = 1
 script = ExtResource("1_ayl5l")
 card_scene = ExtResource("3_lpkew")
 max_separation = 20
-default_card = ExtResource("5_wb7tg")
 play_zone = NodePath("../PlayZone")
 deck_manager = NodePath("EnemyQueueManager")
 mode = 1

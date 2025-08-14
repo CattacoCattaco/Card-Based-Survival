@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://nanh5p0m00y3"]
+[gd_scene load_steps=18 format=4 uid="uid://nanh5p0m00y3"]
 
 [ext_resource type="Texture2D" uid="uid://bsbp37hweews" path="res://game_scene/map/map_tile_bg.png" id="1_j10tu"]
 [ext_resource type="Script" uid="uid://d0h7kwhixxkjs" path="res://game_scene/map/map.gd" id="1_mul44"]
@@ -8,9 +8,10 @@
 [ext_resource type="Script" uid="uid://hsnp44p8tvqf" path="res://game_scene/deck_manager/player_deck_manager/player_deck_manager.gd" id="3_mul44"]
 [ext_resource type="Script" uid="uid://b2rhto30exwma" path="res://game_scene/hand/hand.gd" id="5_fqlyv"]
 [ext_resource type="Script" uid="uid://dis585a1x5bul" path="res://game_scene/play_zone/play_zone.gd" id="6_cx7ym"]
-[ext_resource type="Resource" uid="uid://cnwrqvqybg5ar" path="res://card_data/action_data/movement_actions/move_north.tres" id="6_x2tlu"]
 [ext_resource type="Texture2D" uid="uid://c6g3lgar20iu2" path="res://game_scene/play_zone/play_region_frame_off.png" id="7_4w4tj"]
+[ext_resource type="Script" uid="uid://c2ctgqbjt5773" path="res://card_data/card_data.gd" id="7_fqlyv"]
 [ext_resource type="Theme" uid="uid://b21v52k644p3t" path="res://card/text_bold.tres" id="8_4waan"]
+[ext_resource type="Resource" uid="uid://c5qsvoil8nqo1" path="res://card_data/action_data/generic_actions/reconsider.tres" id="8_cx7ym"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtoay"]
 texture = ExtResource("1_j10tu")
@@ -88,7 +89,7 @@ grow_vertical = 0
 theme_override_constants/separation = -50
 alignment = 1
 script = ExtResource("5_fqlyv")
-default_card = ExtResource("6_x2tlu")
+always_available_cards = Array[ExtResource("7_fqlyv")]([ExtResource("8_cx7ym")])
 play_zone = NodePath("../PlayZone")
 deck_manager = NodePath("PlayerDeckManager")
 

@@ -10,6 +10,8 @@ extends Control
 
 var highlighted: bool = false
 
+var from_deck: bool = true
+
 
 func _ready() -> void:
 	_load_data(data)
