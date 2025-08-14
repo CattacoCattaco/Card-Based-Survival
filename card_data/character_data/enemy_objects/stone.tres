@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://uyx74qv4de3h"]
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://uyx74qv4de3h"]
 
 [ext_resource type="Script" uid="uid://c0dp7gr6vdogq" path="res://card_data/character_data/character_data.gd" id="1_iydb2"]
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="2_hndtc"]
+[ext_resource type="Resource" uid="uid://bl233fdeexe4v" path="res://card_data/character_data/character_tags/object/stone/stone.tres" id="3_67hpp"]
 
 [resource]
 script = ExtResource("1_iydb2")
@@ -9,5 +11,6 @@ block = 5
 strength = 0
 energy = 1
 money = 0
+tags = Array[ExtResource("2_hndtc")]([ExtResource("3_67hpp")])
 card_name = "Stone"
 metadata/_custom_type_script = "uid://c2ctgqbjt5773"

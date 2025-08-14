@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://dpse6ehqqtkqr"]
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://dpse6ehqqtkqr"]
 
 [ext_resource type="Script" uid="uid://c0dp7gr6vdogq" path="res://card_data/character_data/character_data.gd" id="1_d4wlx"]
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="2_ang2h"]
+[ext_resource type="Resource" uid="uid://b2yf45kq211rq" path="res://card_data/character_data/character_tags/object/stone/ore/ore.tres" id="3_gkb8l"]
 
 [resource]
 script = ExtResource("1_d4wlx")
@@ -9,5 +11,6 @@ block = 5
 strength = 0
 energy = 1
 money = 0
+tags = Array[ExtResource("2_ang2h")]([ExtResource("3_gkb8l")])
 card_name = "Gold Ore"
 metadata/_custom_type_script = "uid://c2ctgqbjt5773"

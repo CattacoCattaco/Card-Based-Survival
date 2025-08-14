@@ -35,7 +35,7 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	data.play()
+	await data.play()
 
 
 func highlight() -> void:

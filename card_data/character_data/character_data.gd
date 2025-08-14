@@ -7,9 +7,11 @@ extends CardData
 @export var energy: int = 1
 @export var money: int = 3
 
+@export var tags: Array[CharacterTag] = []
 
-func _init(p_card_name: String = "", p_health: int = 50,
-		p_block: int = 0, p_strength: int = 5, p_energy: int = 1, p_money: int = 3) -> void:
+
+func _init(p_card_name: String = "", p_health: int = 50, p_block: int = 0, p_strength: int = 5,
+		p_energy: int = 1, p_money: int = 3, p_tags: Array[CharacterTag] = []) -> void:
 	super(p_card_name)
 	
 	health = p_health
@@ -17,3 +19,5 @@ func _init(p_card_name: String = "", p_health: int = 50,
 	strength = p_strength
 	energy = p_energy
 	money = p_money
+	
+	tags = p_tags

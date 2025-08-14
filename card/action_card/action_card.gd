@@ -56,7 +56,6 @@ func play() -> void:
 	hand.play_zone.unhighlight()
 	
 	for effect: ActionEffect in data.effects:
-		@warning_ignore("redundant_await")
 		await effect._resolve(self)
 	
 	hand.draw_cards(1)

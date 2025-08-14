@@ -6,9 +6,9 @@ extends Control
 
 @export var data: CardData
 
-var highlighted: bool = false
+@export var hand: Hand
 
-var hand: Hand
+var highlighted: bool = false
 
 
 func _ready() -> void:

@@ -81,6 +81,8 @@ func _input(event: InputEvent) -> void:
 				for card in hand.cards:
 					card.leave_target_mode()
 				
+				hand.play_zone.player_card.leave_target_mode()
+				
 				hand.target_found.emit(self)
 
 

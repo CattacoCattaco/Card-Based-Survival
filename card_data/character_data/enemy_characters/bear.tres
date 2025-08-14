@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://cixowmwsl1qad"]
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://cixowmwsl1qad"]
 
 [ext_resource type="Script" uid="uid://c0dp7gr6vdogq" path="res://card_data/character_data/character_data.gd" id="1_00gby"]
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="2_fq15y"]
+[ext_resource type="Resource" uid="uid://cgsmxgifb82i3" path="res://card_data/character_data/character_tags/living/enemy/animal/animal.tres" id="3_sm485"]
 
 [resource]
 script = ExtResource("1_00gby")
@@ -9,5 +11,6 @@ block = 2
 strength = 6
 energy = 1
 money = 0
+tags = Array[ExtResource("2_fq15y")]([ExtResource("3_sm485")])
 card_name = "Bear"
 metadata/_custom_type_script = "uid://c2ctgqbjt5773"

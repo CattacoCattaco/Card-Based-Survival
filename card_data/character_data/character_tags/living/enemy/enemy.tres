@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterTag" load_steps=3 format=3 uid="uid://bahbk7v0rwinn"]
+
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="1_fgig0"]
+[ext_resource type="Resource" uid="uid://c8142iyvxw8js" path="res://card_data/character_data/character_tags/living/living.tres" id="1_it658"]
+
+[resource]
+script = ExtResource("1_fgig0")
+tag_name = "Enemy"
+parent_tag = ExtResource("1_it658")
+metadata/_custom_type_script = "uid://bvnim1j6r244p"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterTag" load_steps=3 format=3 uid="uid://bkpsgul8egddj"]
+
+[ext_resource type="Resource" uid="uid://y5n5vtw5vcb3" path="res://card_data/character_data/character_tags/object/object.tres" id="1_howbd"]
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="1_l115e"]
+
+[resource]
+script = ExtResource("1_l115e")
+tag_name = "Wooden"
+parent_tag = ExtResource("1_howbd")
+metadata/_custom_type_script = "uid://bvnim1j6r244p"

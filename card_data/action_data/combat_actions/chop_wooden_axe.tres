@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=7 format=3 uid="uid://cgvsy3tlhac6l"]
+
+[ext_resource type="Script" uid="uid://c0gtblaffcrid" path="res://card_data/action_data/action_effect/action_effect.gd" id="1_uc4r7"]
+[ext_resource type="Script" uid="uid://26vrrb5p28xd" path="res://card_data/action_data/action_effect/targeted/damage_effect.gd" id="2_qvx0l"]
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="3_froww"]
+[ext_resource type="Resource" uid="uid://bkpsgul8egddj" path="res://card_data/character_data/character_tags/object/wooden/wooden.tres" id="4_uc4r7"]
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="5_50bhr"]
+
+[sub_resource type="Resource" id="Resource_5dx7i"]
+script = ExtResource("2_qvx0l")
+base_amount = 2
+strength_amount = 1
+targetable_tags = Array[ExtResource("3_froww")]([ExtResource("4_uc4r7")])
+tag_amount_needed = 1
+targeted = true
+metadata/_custom_type_script = "uid://26vrrb5p28xd"
+
+[resource]
+script = ExtResource("5_50bhr")
+effect_text = "Deal damage equal to your strength plus two to target wooden card."
+effects = Array[ExtResource("1_uc4r7")]([SubResource("Resource_5dx7i")])
+card_name = "Wooden Axe"
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

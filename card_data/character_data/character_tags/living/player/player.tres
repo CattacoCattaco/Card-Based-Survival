@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterTag" load_steps=3 format=3 uid="uid://xnw2h1fnpcqb"]
+
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="1_if35p"]
+[ext_resource type="Resource" uid="uid://c8142iyvxw8js" path="res://card_data/character_data/character_tags/living/living.tres" id="1_v5e8k"]
+
+[resource]
+script = ExtResource("1_if35p")
+tag_name = "Player"
+parent_tag = ExtResource("1_v5e8k")
+metadata/_custom_type_script = "uid://bvnim1j6r244p"

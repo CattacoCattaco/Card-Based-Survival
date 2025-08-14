@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterTag" load_steps=2 format=3 uid="uid://c8142iyvxw8js"]
+
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="1_yysc4"]
+
+[resource]
+script = ExtResource("1_yysc4")
+tag_name = ""
+metadata/_custom_type_script = "uid://bvnim1j6r244p"

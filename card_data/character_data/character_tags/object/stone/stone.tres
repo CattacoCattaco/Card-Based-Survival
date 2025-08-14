@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterTag" load_steps=3 format=3 uid="uid://bl233fdeexe4v"]
+
+[ext_resource type="Resource" uid="uid://y5n5vtw5vcb3" path="res://card_data/character_data/character_tags/object/object.tres" id="1_mxp0v"]
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="2_au7gr"]
+
+[resource]
+script = ExtResource("2_au7gr")
+tag_name = "Stone"
+parent_tag = ExtResource("1_mxp0v")
+metadata/_custom_type_script = "uid://bvnim1j6r244p"

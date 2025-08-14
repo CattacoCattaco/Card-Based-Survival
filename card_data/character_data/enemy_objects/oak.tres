@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://qycebwwjneqm"]
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://qycebwwjneqm"]
 
 [ext_resource type="Script" uid="uid://c0dp7gr6vdogq" path="res://card_data/character_data/character_data.gd" id="1_ksrkf"]
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="2_bvs4g"]
+[ext_resource type="Resource" uid="uid://djnm32ogpvut5" path="res://card_data/character_data/character_tags/object/wooden/tree/tree.tres" id="3_detkw"]
 
 [resource]
 script = ExtResource("1_ksrkf")
@@ -9,5 +11,6 @@ block = 2
 strength = 0
 energy = 1
 money = 0
+tags = Array[ExtResource("2_bvs4g")]([ExtResource("3_detkw")])
 card_name = "Oak"
 metadata/_custom_type_script = "uid://c2ctgqbjt5773"

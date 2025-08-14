@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=7 format=3 uid="uid://cvfdcfoy61o51"]
+
+[ext_resource type="Script" uid="uid://c0gtblaffcrid" path="res://card_data/action_data/action_effect/action_effect.gd" id="1_00ky7"]
+[ext_resource type="Script" uid="uid://26vrrb5p28xd" path="res://card_data/action_data/action_effect/targeted/damage_effect.gd" id="2_4up4d"]
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="3_8huga"]
+[ext_resource type="Resource" uid="uid://bl233fdeexe4v" path="res://card_data/character_data/character_tags/object/stone/stone.tres" id="4_4up4d"]
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="4_y3mkk"]
+
+[sub_resource type="Resource" id="Resource_5dx7i"]
+script = ExtResource("2_4up4d")
+base_amount = 2
+strength_amount = 1
+targetable_tags = Array[ExtResource("3_8huga")]([ExtResource("4_4up4d")])
+tag_amount_needed = 1
+targeted = true
+metadata/_custom_type_script = "uid://26vrrb5p28xd"
+
+[resource]
+script = ExtResource("4_y3mkk")
+effect_text = "Deal damage equal to your strength plus two to target stone card."
+effects = Array[ExtResource("1_00ky7")]([SubResource("Resource_5dx7i")])
+card_name = "Wooden Pickaxe"
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"
