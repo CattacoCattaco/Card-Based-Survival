@@ -149,7 +149,7 @@ func move_right() -> void:
 		if adjusted_pos.x == BOTTOM_RIGHT.x and pos_visible(adjusted_pos):
 			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
 			add_child(object)
-			visible_objects[adjusted_pos] = object
+			visible_objects[pos] = object
 			
 			object.position = adjusted_pos
 			object.pos = pos
