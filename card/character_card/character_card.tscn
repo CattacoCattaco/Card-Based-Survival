@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6ewh37v0u6s7"]
+[gd_scene load_steps=19 format=3 uid="uid://b6ewh37v0u6s7"]
 
 [ext_resource type="Script" uid="uid://dhorba14jydwy" path="res://card/character_card/character_card.gd" id="1_0c0xn"]
 [ext_resource type="Texture2D" uid="uid://dn7hp3txwq57o" path="res://card/card_frame.png" id="1_kteoe"]
@@ -15,14 +15,16 @@
 [ext_resource type="Resource" uid="uid://bmm14iddl7i1p" path="res://card_data/action_data/movement_actions/move_west.tres" id="7_uyitp"]
 [ext_resource type="Texture2D" uid="uid://dugl8dm6yjr6p" path="res://card/card_highlight.png" id="8_cn0fn"]
 [ext_resource type="Texture2D" uid="uid://dmqapvxh6u4jq" path="res://card/art_box_empty.png" id="8_kteoe"]
+[ext_resource type="Resource" uid="uid://xnw2h1fnpcqb" path="res://card_data/character_data/character_tags/living/player/player.tres" id="8_pabbr"]
 [ext_resource type="Texture2D" uid="uid://csjka1uqs7ynx" path="res://card/character_card/target_crosshare.png" id="16_oufd5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tik55"]
+resource_local_to_scene = true
 shader = ExtResource("6_5dsc1")
 shader_parameter/replaced_color = Vector4(0, 1, 0, 1)
 shader_parameter/new_color = Vector4(1, 1, 0, 1)
 
-[node name="CharacterCard" type="Control" node_paths=PackedStringArray("target_sprite", "health_label", "block_label", "strength_label", "energy_label", "money_label", "name_label", "highlight_sprite")]
+[node name="CharacterCard" type="Control" node_paths=PackedStringArray("target_sprite", "health_label", "block_label", "strength_label", "energy_label", "money_label", "name_label", "art_box", "highlight_sprite")]
 custom_minimum_size = Vector2(125, 125)
 layout_mode = 3
 anchors_preset = 0
@@ -35,7 +37,9 @@ energy_label = NodePath("CardFrame/Stats/EnergyLabel")
 money_label = NodePath("CardFrame/Stats/MoneyLabel")
 fight_deck = Array[ExtResource("2_0xq84")]([ExtResource("3_oufd5"), ExtResource("3_oufd5"), ExtResource("3_oufd5"), ExtResource("3_oufd5"), ExtResource("3_oufd5"), ExtResource("3_oufd5")])
 movement_deck = Array[ExtResource("2_0xq84")]([ExtResource("4_pabbr"), ExtResource("5_g5htm"), ExtResource("6_f83ag"), ExtResource("7_uyitp")])
+player_tag = ExtResource("8_pabbr")
 name_label = NodePath("CardFrame/NameLabel")
+art_box = NodePath("CardFrame/ArtBox")
 highlight_sprite = NodePath("CardHighlight")
 data = ExtResource("2_t6p7o")
 
@@ -52,12 +56,12 @@ theme = ExtResource("2_0c0xn")
 text = "A Grizly Bear"
 
 [node name="ArtBox" type="Sprite2D" parent="CardFrame"]
+material = SubResource("ShaderMaterial_tik55")
 position = Vector2(2, 20)
 texture = ExtResource("8_kteoe")
 centered = false
 
 [node name="Stats" type="Sprite2D" parent="CardFrame"]
-material = SubResource("ShaderMaterial_tik55")
 texture = ExtResource("5_hoxil")
 centered = false
 

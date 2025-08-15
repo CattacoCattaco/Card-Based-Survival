@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=8 format=3 uid="uid://b02kbtvqve1rg"]
+
+[ext_resource type="Texture2D" uid="uid://cx38cytos0g6d" path="res://card_data/action_data/art/color.png" id="1_a1owe"]
+[ext_resource type="Script" uid="uid://c0gtblaffcrid" path="res://card_data/action_data/action_effect/action_effect.gd" id="2_vdcv6"]
+[ext_resource type="Script" uid="uid://ojmbgq67t0c7" path="res://card_data/action_data/action_effect/player_color_effect.gd" id="3_it1ak"]
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="4_ltbe8"]
+[ext_resource type="Script" uid="uid://7ekgowbdv27n" path="res://card_data/action_data/action_effect/goto_settings_menu_effect.gd" id="4_vdcv6"]
+
+[sub_resource type="Resource" id="Resource_j6xyx"]
+script = ExtResource("3_it1ak")
+changes_color_group = true
+set_value = 0
+metadata/_custom_type_script = "uid://ojmbgq67t0c7"
+
+[sub_resource type="Resource" id="Resource_it1ak"]
+script = ExtResource("4_vdcv6")
+menu = 2
+metadata/_custom_type_script = "uid://7ekgowbdv27n"
+
+[resource]
+script = ExtResource("4_ltbe8")
+effect_text = "Set your player's color to be red."
+effects = Array[ExtResource("2_vdcv6")]([SubResource("Resource_j6xyx"), SubResource("Resource_it1ak")])
+replace = true
+card_name = "Red"
+art = ExtResource("1_a1owe")
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

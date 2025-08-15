@@ -8,6 +8,7 @@ extends Control
 @export var map_BG: MapBG
 @export var enemy_holder: Hand
 @export var fight: Fight
+@export var settings: Settings
 
 var drag_hapenning: bool = false
 var drag_preview: ActionCard
@@ -16,6 +17,11 @@ var drag_preview: ActionCard
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+	
+	if map_BG:
+		settings = map_BG.map_control.settings
+	elif fight:
+		pass
 
 
 func _on_mouse_entered() -> void:
@@ -40,7 +46,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 
 func highlight() -> void:
 	frame_sprite.texture = preload("res://game_scene/play_zone/play_region_frame_on.png")
-	label.label_settings.font_color = Color(1, 0.737, 0)
+	label.label_settings.font_color = Color(1, 0.675, 0)
 
 
 func unhighlight() -> void:

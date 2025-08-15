@@ -1,0 +1,128 @@
+[gd_scene load_steps=29 format=3 uid="uid://bf4weyg37yw8k"]
+
+[ext_resource type="Script" uid="uid://b3ggc1hp4ydt7" path="res://game_scene/settings/settings.gd" id="1_cj201"]
+[ext_resource type="PackedScene" uid="uid://b6ewh37v0u6s7" path="res://card/character_card/character_card.tscn" id="1_o63b0"]
+[ext_resource type="Script" uid="uid://b2rhto30exwma" path="res://game_scene/hand/hand.gd" id="2_cj201"]
+[ext_resource type="PackedScene" uid="uid://dr7y2o0x11714" path="res://card/action_card/action_card.tscn" id="4_arcrk"]
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="5_8tuce"]
+[ext_resource type="Script" uid="uid://dis585a1x5bul" path="res://game_scene/play_zone/play_zone.gd" id="6_8ogv8"]
+[ext_resource type="Resource" uid="uid://b02kbtvqve1rg" path="res://card_data/action_data/settings_action/red.tres" id="6_arcrk"]
+[ext_resource type="Script" uid="uid://c57ledaiy54xg" path="res://game_scene/deck_manager/settings_deck_manager/settings_deck_manager.gd" id="6_cj201"]
+[ext_resource type="Resource" uid="uid://csibijvvuq2k5" path="res://card_data/action_data/settings_action/orange.tres" id="7_ltv51"]
+[ext_resource type="Texture2D" uid="uid://c6g3lgar20iu2" path="res://game_scene/play_zone/play_region_frame_off.png" id="7_mh0mi"]
+[ext_resource type="Resource" uid="uid://b3cmq6y7nfkbl" path="res://card_data/action_data/settings_action/colors.tres" id="7_rudjx"]
+[ext_resource type="Theme" uid="uid://b21v52k644p3t" path="res://card/text_bold.tres" id="8_rh3gc"]
+[ext_resource type="Resource" uid="uid://doskgrnluek0x" path="res://card_data/action_data/settings_action/yellow.tres" id="8_rudjx"]
+[ext_resource type="Resource" uid="uid://c4i0sua7pjp2b" path="res://card_data/action_data/settings_action/green.tres" id="9_2ngu4"]
+[ext_resource type="Resource" uid="uid://2wy6up7ok1dq" path="res://card_data/action_data/settings_action/cyan.tres" id="10_gdmsv"]
+[ext_resource type="Resource" uid="uid://3t64r8agacn5" path="res://card_data/action_data/settings_action/blue.tres" id="11_w7p7d"]
+[ext_resource type="Resource" uid="uid://bwby1cj7idx81" path="res://card_data/action_data/settings_action/purple.tres" id="12_ugqcl"]
+[ext_resource type="Resource" uid="uid://cru2hvx1jpnll" path="res://card_data/action_data/settings_action/bright.tres" id="13_fd1o4"]
+[ext_resource type="Resource" uid="uid://dx2cqicmqciij" path="res://card_data/action_data/settings_action/dark.tres" id="14_eylh8"]
+[ext_resource type="Resource" uid="uid://441d0e3sor16" path="res://card_data/action_data/settings_action/darker.tres" id="15_ecdhe"]
+[ext_resource type="Resource" uid="uid://cgum377erumdm" path="res://card_data/action_data/settings_action/darkest.tres" id="16_l0y7v"]
+[ext_resource type="Resource" uid="uid://cquhjoy0dypjt" path="res://card_data/action_data/settings_action/faded.tres" id="17_dt006"]
+[ext_resource type="Resource" uid="uid://ckos7yaik3wg6" path="res://card_data/action_data/settings_action/fadeder.tres" id="18_oapgk"]
+[ext_resource type="Resource" uid="uid://bgafgu5i8mmgp" path="res://card_data/action_data/settings_action/faded_dark.tres" id="19_f6wl3"]
+[ext_resource type="Resource" uid="uid://dt8kojihqe74r" path="res://card_data/action_data/settings_action/faded_darker.tres" id="20_5li6x"]
+[ext_resource type="Resource" uid="uid://cx5ugf232w2f6" path="res://card_data/action_data/settings_action/return_to_map.tres" id="23_2ngu4"]
+[ext_resource type="Resource" uid="uid://cchb2ko3sxd75" path="res://card_data/action_data/settings_action/return_to_fight.tres" id="24_gdmsv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_35lao"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[node name="Settings" type="Control" node_paths=PackedStringArray("play_zone", "hand")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cj201")
+play_zone = NodePath("PlayZone")
+hand = NodePath("Hand")
+reds = Array[Color]([Color(1, 0, 0, 1), Color(0.57, 0, 0, 1), Color(0.38, 0, 0, 1), Color(0.15, 0, 0, 1), Color(1, 0.360784, 0.360784, 1), Color(1, 0.737255, 0.737255, 1), Color(0.678431, 0.254902, 0.254902, 1), Color(0.419608, 0.223529, 0.223529, 1)])
+oranges = Array[Color]([Color(1, 0.416667, 0, 1), Color(0.57, 0.2375, 0, 1), Color(0.38, 0.158333, 0, 1), Color(0.15, 0.0625, 0, 1), Color(1, 0.623529, 0.360784, 1), Color(1, 0.848333, 0.74, 1), Color(0.68, 0.434067, 0.2584, 1), Color(0.42, 0.30485, 0.2226, 1)])
+yellows = Array[Color]([Color(1, 0.683333, 0, 1), Color(0.57, 0.3895, 0, 1), Color(0.38, 0.259667, 0, 1), Color(0.15, 0.1025, 0, 1), Color(1, 0.797333, 0.36, 1), Color(1, 0.917667, 0.74, 1), Color(0.68, 0.546493, 0.2584, 1), Color(0.42, 0.35749, 0.2226, 1)])
+greens = Array[Color]([Color(0.383333, 1, 0, 1), Color(0.2185, 0.57, 0, 1), Color(0.145667, 0.38, 0, 1), Color(0.0575, 0.15, 0, 1), Color(0.605333, 1, 0.36, 1), Color(0.839667, 1, 0.74, 1), Color(0.420013, 0.68, 0.2584, 1), Color(0.29827, 0.42, 0.2226, 1)])
+cyans = Array[Color]([Color(0, 1, 1, 1), Color(0, 0.57, 0.57, 1), Color(0, 0.38, 0.38, 1), Color(0, 0.15, 0.15, 1), Color(0.36, 1, 1, 1), Color(0.74, 1, 1, 1), Color(0.2584, 0.68, 0.68, 1), Color(0.2226, 0.42, 0.42, 1)])
+blues = Array[Color]([Color(0, 0.266666, 1, 1), Color(0, 0.152, 0.57, 1), Color(0, 0.101333, 0.38, 1), Color(0, 0.04, 0.15, 1), Color(0.36, 0.530666, 1, 1), Color(0.74, 0.809333, 1, 1), Color(0.2584, 0.370827, 0.68, 1), Color(0.2226, 0.27524, 0.42, 1)])
+purples = Array[Color]([Color(0.733333, 0, 1, 1), Color(0.418, 0, 0.57, 1), Color(0.278667, 0, 0.38, 1), Color(0.11, 0, 0.15, 1), Color(0.829333, 0.36, 1, 1), Color(0.930667, 0.74, 1, 1), Color(0.567573, 0.2584, 0.68, 1), Color(0.36736, 0.2226, 0.42, 1)])
+
+[node name="PlayerCard" parent="." node_paths=PackedStringArray("play_zone") instance=ExtResource("1_o63b0")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -125.0
+offset_right = 125.0
+grow_vertical = 0
+play_zone = NodePath("../PlayZone")
+
+[node name="Hand" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone", "deck_manager")]
+custom_minimum_size = Vector2(500, 125)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("2_cj201")
+card_scene = ExtResource("4_arcrk")
+play_zone = NodePath("../PlayZone")
+deck_manager = NodePath("SettingsDeckManager")
+mode = 3
+metadata/_custom_type_script = "uid://b2rhto30exwma"
+
+[node name="SettingsDeckManager" type="Node" parent="Hand"]
+script = ExtResource("6_cj201")
+menu_cards = Array[ExtResource("5_8tuce")]([ExtResource("7_rudjx")])
+color_group_cards = Array[ExtResource("5_8tuce")]([ExtResource("6_arcrk"), ExtResource("7_ltv51"), ExtResource("8_rudjx"), ExtResource("9_2ngu4"), ExtResource("10_gdmsv"), ExtResource("11_w7p7d"), ExtResource("12_ugqcl")])
+color_modifier_cards = Array[ExtResource("5_8tuce")]([ExtResource("13_fd1o4"), ExtResource("14_eylh8"), ExtResource("15_ecdhe"), ExtResource("16_l0y7v"), ExtResource("17_dt006"), ExtResource("18_oapgk"), ExtResource("19_f6wl3"), ExtResource("20_5li6x")])
+return_to_map_card = ExtResource("23_2ngu4")
+return_to_fight_card = ExtResource("24_gdmsv")
+metadata/_custom_type_script = "uid://c57ledaiy54xg"
+
+[node name="PlayZone" type="Control" parent="." node_paths=PackedStringArray("frame_sprite", "label", "player_card", "settings")]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_8ogv8")
+frame_sprite = NodePath("PlayZoneFrame")
+label = NodePath("PlayZoneLabel")
+player_card = NodePath("../PlayerCard")
+settings = NodePath("..")
+
+[node name="PlayZoneFrame" type="Sprite2D" parent="PlayZone"]
+texture = ExtResource("7_mh0mi")
+centered = false
+
+[node name="PlayZoneLabel" type="Label" parent="PlayZone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_rh3gc")
+text = "Play
+Cards
+Here"
+label_settings = SubResource("LabelSettings_35lao")
+horizontal_alignment = 1
+vertical_alignment = 1

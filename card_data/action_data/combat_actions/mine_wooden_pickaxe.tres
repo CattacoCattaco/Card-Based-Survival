@@ -19,5 +19,6 @@ metadata/_custom_type_script = "uid://26vrrb5p28xd"
 script = ExtResource("4_y3mkk")
 effect_text = "Deal damage equal to your strength plus two to target stone card."
 effects = Array[ExtResource("1_00ky7")]([SubResource("Resource_5dx7i")])
+replace = true
 card_name = "Wooden Pickaxe"
 metadata/_custom_type_script = "uid://c2ctgqbjt5773"

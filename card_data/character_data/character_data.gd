@@ -10,9 +10,10 @@ extends CardData
 @export var tags: Array[CharacterTag] = []
 
 
-func _init(p_card_name: String = "", p_health: int = 50, p_block: int = 0, p_strength: int = 5,
-		p_energy: int = 1, p_money: int = 3, p_tags: Array[CharacterTag] = []) -> void:
-	super(p_card_name)
+func _init(p_card_name: String = "", p_art := Texture2D.new(), p_health: int = 50, p_block: int = 0,
+		p_strength: int = 5, p_energy: int = 1, p_money: int = 3, p_tags: Array[CharacterTag] = []
+		) -> void:
+	super(p_card_name, p_art)
 	
 	health = p_health
 	block = p_block

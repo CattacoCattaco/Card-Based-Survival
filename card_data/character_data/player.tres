@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://cc4712hvchri"]
+[gd_resource type="Resource" script_class="CharacterData" load_steps=5 format=3 uid="uid://cc4712hvchri"]
 
 [ext_resource type="Script" uid="uid://c0dp7gr6vdogq" path="res://card_data/character_data/character_data.gd" id="1_0k5dh"]
+[ext_resource type="Texture2D" uid="uid://d1hm8pr0o0jhb" path="res://card_data/character_data/art/player.png" id="1_2kswk"]
 [ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="2_0otgf"]
 [ext_resource type="Resource" uid="uid://xnw2h1fnpcqb" path="res://card_data/character_data/character_tags/living/player/player.tres" id="3_2kswk"]
 
@@ -13,4 +14,5 @@ energy = 2
 money = 3
 tags = Array[ExtResource("2_0otgf")]([ExtResource("3_2kswk")])
 card_name = "Player"
+art = ExtResource("1_2kswk")
 metadata/_custom_type_script = "uid://c2ctgqbjt5773"

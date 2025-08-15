@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=5 format=3 uid="uid://cx5ugf232w2f6"]
+
+[ext_resource type="Script" uid="uid://c0gtblaffcrid" path="res://card_data/action_data/action_effect/action_effect.gd" id="1_gceun"]
+[ext_resource type="Script" uid="uid://cwjqagpgvw8tb" path="res://card_data/action_data/action_effect/return_from_settings_effect.gd" id="2_4fi2h"]
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="3_sodo8"]
+
+[sub_resource type="Resource" id="Resource_0iiq6"]
+script = ExtResource("2_4fi2h")
+metadata/_custom_type_script = "uid://cwjqagpgvw8tb"
+
+[resource]
+script = ExtResource("3_sodo8")
+effect_text = "Return to map."
+effects = Array[ExtResource("1_gceun")]([SubResource("Resource_0iiq6")])
+replace = false
+card_name = "Return to Map"
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

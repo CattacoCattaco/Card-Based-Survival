@@ -14,7 +14,7 @@ func _init(p_targetable_tags: Array[CharacterTag] = [], p_tag_amount_needed: int
 
 
 func _resolve(action_card: ActionCard) -> void:
-	var enemy_holder: Hand = action_card.hand.play_zone.enemy_holder
+	var enemy_holder: Hand = action_card.play_zone.enemy_holder
 	if targeted:
 		for target in get_valid_targets(action_card):
 			target.enter_target_mode()
@@ -28,15 +28,15 @@ func _resolve(action_card: ActionCard) -> void:
 
 
 func get_valid_targets(action_card: ActionCard) -> Array[CharacterCard]:
-	var enemy_holder: Hand = action_card.hand.play_zone.enemy_holder
+	var enemy_holder: Hand = action_card.play_zone.enemy_holder
 	var valid_targets: Array[CharacterCard] = []
 	
 	for enemy: CharacterCard in enemy_holder.cards:
 		if is_valid_target(enemy):
 			valid_targets.append(enemy)
 	
-	if is_valid_target(action_card.hand.play_zone.player_card):
-		valid_targets.append(action_card.hand.play_zone.player_card)
+	if is_valid_target(action_card.play_zone.player_card):
+		valid_targets.append(action_card.play_zone.player_card)
 	
 	return valid_targets
 
@@ -48,14 +48,13 @@ func is_valid_target(card: CharacterCard) -> bool:
 	var tags_matched: int = 0
 	
 	for targetable_tag in targetable_tags:
-		for present_tag: CharacterTag in card.data.tags:
-			if present_tag.inherits(targetable_tag):
-				tags_matched += 1
-				
-				if tags_matched >= tag_amount_needed:
-					return true
-				
-				break
+		if card.has_tag(targetable_tag):
+			tags_matched += 1
+			
+			if tags_matched >= tag_amount_needed:
+				return true
+			
+			break
 	
 	return false
 

@@ -1,15 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://hexshmnhcweg"]
+[gd_scene load_steps=18 format=3 uid="uid://hexshmnhcweg"]
 
 [ext_resource type="Script" uid="uid://b2rhto30exwma" path="res://game_scene/hand/hand.gd" id="1_ayl5l"]
 [ext_resource type="Script" uid="uid://gbhlwdjlhlrn" path="res://game_scene/fight/fight.gd" id="1_lpkew"]
 [ext_resource type="Resource" uid="uid://bjlyo131duohk" path="res://card_data/action_data/combat_actions/punch.tres" id="2_030u5"]
 [ext_resource type="PackedScene" uid="uid://b6ewh37v0u6s7" path="res://card/character_card/character_card.tscn" id="3_lpkew"]
 [ext_resource type="Script" uid="uid://c2ctgqbjt5773" path="res://card_data/card_data.gd" id="3_vy1pm"]
+[ext_resource type="PackedScene" uid="uid://dr7y2o0x11714" path="res://card/action_card/action_card.tscn" id="3_wcsgf"]
 [ext_resource type="Script" uid="uid://hsnp44p8tvqf" path="res://game_scene/deck_manager/player_deck_manager/player_deck_manager.gd" id="4_ayl5l"]
 [ext_resource type="Resource" uid="uid://c5qsvoil8nqo1" path="res://card_data/action_data/generic_actions/reconsider.tres" id="4_wcsgf"]
 [ext_resource type="Script" uid="uid://dvrhq6x4i8ojs" path="res://game_scene/deck_manager/enemy_queue_manager/enemy_queue_manager.gd" id="6_030u5"]
 [ext_resource type="Script" uid="uid://dis585a1x5bul" path="res://game_scene/play_zone/play_zone.gd" id="6_u5tag"]
 [ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="6_vy1pm"]
+[ext_resource type="Resource" uid="uid://byowuleie3fbg" path="res://card_data/action_data/generic_actions/options.tres" id="6_w1hv5"]
 [ext_resource type="Texture2D" uid="uid://c6g3lgar20iu2" path="res://game_scene/play_zone/play_region_frame_off.png" id="7_vy1pm"]
 [ext_resource type="Resource" uid="uid://cgvsy3tlhac6l" path="res://card_data/action_data/combat_actions/chop_wooden_axe.tres" id="7_wcsgf"]
 [ext_resource type="Resource" uid="uid://cvfdcfoy61o51" path="res://card_data/action_data/combat_actions/mine_wooden_pickaxe.tres" id="8_w1hv5"]
@@ -48,7 +50,8 @@ grow_vertical = 0
 theme_override_constants/separation = -50
 alignment = 1
 script = ExtResource("1_ayl5l")
-always_available_cards = Array[ExtResource("3_vy1pm")]([ExtResource("4_wcsgf")])
+card_scene = ExtResource("3_wcsgf")
+always_available_cards = Array[ExtResource("3_vy1pm")]([ExtResource("4_wcsgf"), ExtResource("6_w1hv5")])
 play_zone = NodePath("../PlayZone")
 deck_manager = NodePath("PlayerDeckManager")
 
@@ -57,7 +60,7 @@ script = ExtResource("4_ayl5l")
 player_card = NodePath("../../PlayerCard")
 mode = 1
 
-[node name="PlayerCard" parent="." node_paths=PackedStringArray("hand") instance=ExtResource("3_lpkew")]
+[node name="PlayerCard" parent="." node_paths=PackedStringArray("hand", "play_zone") instance=ExtResource("3_lpkew")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -67,6 +70,7 @@ offset_right = 125.0
 grow_vertical = 0
 fight_deck = Array[ExtResource("6_vy1pm")]([ExtResource("2_030u5"), ExtResource("2_030u5"), ExtResource("7_wcsgf"), ExtResource("8_w1hv5")])
 hand = NodePath("../EnemyHolder")
+play_zone = NodePath("../PlayZone")
 
 [node name="EnemyHolder" type="HBoxContainer" parent="." node_paths=PackedStringArray("play_zone", "deck_manager")]
 custom_minimum_size = Vector2(640, 125)
@@ -81,7 +85,7 @@ card_scene = ExtResource("3_lpkew")
 max_separation = 20
 play_zone = NodePath("../PlayZone")
 deck_manager = NodePath("EnemyQueueManager")
-mode = 1
+mode = 2
 
 [node name="EnemyQueueManager" type="Node" parent="EnemyHolder"]
 script = ExtResource("6_030u5")

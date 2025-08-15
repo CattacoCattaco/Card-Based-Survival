@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=8 format=3 uid="uid://bgafgu5i8mmgp"]
+
+[ext_resource type="Texture2D" uid="uid://cx38cytos0g6d" path="res://card_data/action_data/art/color.png" id="1_d3h04"]
+[ext_resource type="Script" uid="uid://c0gtblaffcrid" path="res://card_data/action_data/action_effect/action_effect.gd" id="2_m7vpl"]
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="3_ir03e"]
+[ext_resource type="Script" uid="uid://ojmbgq67t0c7" path="res://card_data/action_data/action_effect/player_color_effect.gd" id="3_m7vpl"]
+[ext_resource type="Script" uid="uid://7ekgowbdv27n" path="res://card_data/action_data/action_effect/goto_settings_menu_effect.gd" id="4_ir03e"]
+
+[sub_resource type="Resource" id="Resource_ir03e"]
+script = ExtResource("3_m7vpl")
+changes_color_group = false
+set_value = 6
+metadata/_custom_type_script = "uid://ojmbgq67t0c7"
+
+[sub_resource type="Resource" id="Resource_iudew"]
+script = ExtResource("4_ir03e")
+menu = 0
+metadata/_custom_type_script = "uid://7ekgowbdv27n"
+
+[resource]
+script = ExtResource("3_ir03e")
+effect_text = "Set your player's color to be a faded dark version of the selected hue."
+effects = Array[ExtResource("2_m7vpl")]([SubResource("Resource_ir03e"), SubResource("Resource_iudew")])
+replace = true
+card_name = "Faded Dark"
+art = ExtResource("1_d3h04")
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

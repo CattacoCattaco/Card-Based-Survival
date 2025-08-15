@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=8 format=3 uid="uid://cgum377erumdm"]
+
+[ext_resource type="Texture2D" uid="uid://cx38cytos0g6d" path="res://card_data/action_data/art/color.png" id="1_dc0c4"]
+[ext_resource type="Script" uid="uid://c0gtblaffcrid" path="res://card_data/action_data/action_effect/action_effect.gd" id="2_62jwh"]
+[ext_resource type="Script" uid="uid://ojmbgq67t0c7" path="res://card_data/action_data/action_effect/player_color_effect.gd" id="3_62jwh"]
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="3_bop12"]
+[ext_resource type="Script" uid="uid://7ekgowbdv27n" path="res://card_data/action_data/action_effect/goto_settings_menu_effect.gd" id="4_bop12"]
+
+[sub_resource type="Resource" id="Resource_bop12"]
+script = ExtResource("3_62jwh")
+changes_color_group = false
+set_value = 3
+metadata/_custom_type_script = "uid://ojmbgq67t0c7"
+
+[sub_resource type="Resource" id="Resource_wbbcq"]
+script = ExtResource("4_bop12")
+menu = 0
+metadata/_custom_type_script = "uid://7ekgowbdv27n"
+
+[resource]
+script = ExtResource("3_bop12")
+effect_text = "Set your player's color to be the darkest available version of the selected hue."
+effects = Array[ExtResource("2_62jwh")]([SubResource("Resource_bop12"), SubResource("Resource_wbbcq")])
+replace = true
+card_name = "Darkest"
+art = ExtResource("1_dc0c4")
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

@@ -7,16 +7,17 @@
 
 [sub_resource type="Resource" id="Resource_5dx7i"]
 script = ExtResource("2_6khs0")
-targeted = true
 base_amount = 0
 strength_amount = 1
 targetable_tags = Array[ExtResource("3_5dx7i")]([])
 tag_amount_needed = 0
+targeted = true
 metadata/_custom_type_script = "uid://26vrrb5p28xd"
 
 [resource]
 script = ExtResource("2_bwl0y")
 effect_text = "Deal damage equal to your strength to any target."
 effects = Array[ExtResource("1_hhm7s")]([SubResource("Resource_5dx7i")])
+replace = true
 card_name = "Punch"
 metadata/_custom_type_script = "uid://c2ctgqbjt5773"

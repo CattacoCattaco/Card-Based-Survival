@@ -16,9 +16,9 @@ func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_DRAG_END:
 			if is_dragging:
-				hand.play_zone.drag_hapenning = false
-				hand.play_zone.drag_preview = null
-				hand.play_zone.unhighlight()
+				play_zone.drag_hapenning = false
+				play_zone.drag_preview = null
+				play_zone.unhighlight()
 				
 				is_dragging = false
 				
@@ -27,7 +27,7 @@ func _notification(what: int) -> void:
 
 
 func _on_mouse_entered() -> void:
-	if not hand.play_zone.drag_hapenning:
+	if not play_zone.drag_hapenning:
 		z_index = 10
 		position_offset_control.position = Vector2(0, -10)
 
@@ -49,17 +49,21 @@ func _load_data(new_data: CardData) -> void:
 
 func play() -> void:
 	hand.cards.erase(self)
+	
 	if from_deck:
 		hand.deck_manager.used_cards.append(data)
 	
-	hand.play_zone.drag_hapenning = false
-	hand.play_zone.drag_preview = null
-	hand.play_zone.unhighlight()
+	play_zone.drag_hapenning = false
+	play_zone.drag_preview = null
+	play_zone.unhighlight()
 	
 	for effect: ActionEffect in data.effects:
 		await effect._resolve(self)
 	
-	if data.replace:
-		hand.draw_cards(1)
-	
 	queue_free()
+	match hand.mode:
+		Hand.Mode.MAP_ACTIONS, Hand.Mode.FIGHT_ACTIONS:
+			if data.replace:
+				hand.draw_cards(1)
+		Hand.Mode.SETTINGS_ACTIONS:
+			hand.draw_settings_hand()

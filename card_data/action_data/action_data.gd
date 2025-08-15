@@ -6,9 +6,9 @@ extends CardData
 @export var replace: bool = true
 
 
-func _init(p_card_name: String = "", p_effect_text: String = "",
+func _init(p_card_name: String = "", p_art := Texture2D.new(), p_effect_text: String = "",
 		p_effects: Array[ActionEffect] = [], p_replace: bool = true) -> void:
-	super(p_card_name)
+	super(p_card_name, p_art)
 	
 	effect_text = p_effect_text
 	effects = p_effects

@@ -16,10 +16,13 @@ func _ready() -> void:
 	player = MAP_OBJECT_SCENE.instantiate()
 	add_child(player)
 	player.position = CENTER
+	player.map_BG = self
 	player.pos = Vector2i(0, 0)
 	player.set_sprite(MapObject.PLAYER)
 	
 	display()
+	
+	map_control.load_settings()
 
 
 func display() -> void:
@@ -36,13 +39,14 @@ func display() -> void:
 		visible_objects[pos] = object
 		
 		object.position = adjusted_pos
+		object.map_BG = self
 		object.pos = pos
 		object.set_sprite(objects[pos])
 
 
 func move_up() -> void:
 	if player.pos + Vector2i(0, -1) in visible_objects:
-		visible_objects[player.pos + Vector2i(0, -1)].do_event(self)
+		visible_objects[player.pos + Vector2i(0, -1)].do_event()
 		return
 	
 	player.pos.y -= 1
@@ -65,13 +69,14 @@ func move_up() -> void:
 			visible_objects[pos] = object
 			
 			object.position = adjusted_pos
+			object.map_BG = self
 			object.pos = pos
 			object.set_sprite(objects[pos])
 
 
 func move_left() -> void:
 	if player.pos + Vector2i(-1, 0) in visible_objects:
-		visible_objects[player.pos + Vector2i(-1, 0)].do_event(self)
+		visible_objects[player.pos + Vector2i(-1, 0)].do_event()
 		return
 	
 	player.pos.x -= 1
@@ -94,13 +99,14 @@ func move_left() -> void:
 			visible_objects[pos] = object
 			
 			object.position = adjusted_pos
+			object.map_BG = self
 			object.pos = pos
 			object.set_sprite(objects[pos])
 
 
 func move_down() -> void:
 	if player.pos + Vector2i(0, 1) in visible_objects:
-		visible_objects[player.pos + Vector2i(0, 1)].do_event(self)
+		visible_objects[player.pos + Vector2i(0, 1)].do_event()
 		return
 	
 	player.pos.y += 1
@@ -123,13 +129,14 @@ func move_down() -> void:
 			visible_objects[pos] = object
 			
 			object.position = adjusted_pos
+			object.map_BG = self
 			object.pos = pos
 			object.set_sprite(objects[pos])
 
 
 func move_right() -> void:
 	if player.pos + Vector2i(1, 0) in visible_objects:
-		visible_objects[player.pos + Vector2i(1, 0)].do_event(self)
+		visible_objects[player.pos + Vector2i(1, 0)].do_event()
 		return
 	
 	player.pos.x += 1
@@ -152,17 +159,10 @@ func move_right() -> void:
 			visible_objects[pos] = object
 			
 			object.position = adjusted_pos
+			object.map_BG = self
 			object.pos = pos
 			object.set_sprite(objects[pos])
 
 
 func pos_visible(pos: Vector2i) -> bool:
 	return pos.x >= 0 and pos.y >= 0 and pos.x <= BOTTOM_RIGHT.x and pos.y <= BOTTOM_RIGHT.y
-
-
-func load_fight_scene(enemies: Array[CharacterData]) -> void:
-	var fight_scene: Fight = preload("res://game_scene/fight/fight.tscn").instantiate()
-	fight_scene.enemy_queue_manager.enemies = enemies
-	fight_scene.map_scene = map_control
-	get_tree().root.add_child(fight_scene)
-	get_tree().root.remove_child(map_control)

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=8 format=3 uid="uid://cru2hvx1jpnll"]
+
+[ext_resource type="Texture2D" uid="uid://cx38cytos0g6d" path="res://card_data/action_data/art/color.png" id="1_f7wli"]
+[ext_resource type="Script" uid="uid://c0gtblaffcrid" path="res://card_data/action_data/action_effect/action_effect.gd" id="2_wv4fm"]
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="3_sy1ub"]
+[ext_resource type="Script" uid="uid://ojmbgq67t0c7" path="res://card_data/action_data/action_effect/player_color_effect.gd" id="3_wv4fm"]
+[ext_resource type="Script" uid="uid://7ekgowbdv27n" path="res://card_data/action_data/action_effect/goto_settings_menu_effect.gd" id="4_sy1ub"]
+
+[sub_resource type="Resource" id="Resource_sy1ub"]
+script = ExtResource("3_wv4fm")
+changes_color_group = false
+set_value = 0
+metadata/_custom_type_script = "uid://ojmbgq67t0c7"
+
+[sub_resource type="Resource" id="Resource_actau"]
+script = ExtResource("4_sy1ub")
+menu = 0
+metadata/_custom_type_script = "uid://7ekgowbdv27n"
+
+[resource]
+script = ExtResource("3_sy1ub")
+effect_text = "Set your player's color to be a bright version of the selected hue."
+effects = Array[ExtResource("2_wv4fm")]([SubResource("Resource_sy1ub"), SubResource("Resource_actau")])
+replace = true
+card_name = "Bright"
+art = ExtResource("1_f7wli")
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

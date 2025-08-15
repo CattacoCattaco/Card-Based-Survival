@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ActionData" load_steps=5 format=3 uid="uid://bmm14iddl7i1p"]
+[gd_resource type="Resource" script_class="ActionData" load_steps=6 format=3 uid="uid://bmm14iddl7i1p"]
 
+[ext_resource type="Texture2D" uid="uid://cal0ce8i1l562" path="res://card_data/action_data/art/west.png" id="1_cvmi5"]
 [ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="1_qt3to"]
 [ext_resource type="Script" uid="uid://c0gtblaffcrid" path="res://card_data/action_data/action_effect/action_effect.gd" id="1_vqkh0"]
 [ext_resource type="Script" uid="uid://51j4pv7l3d2u" path="res://card_data/action_data/action_effect/move_effect.gd" id="2_ib806"]
@@ -14,5 +15,7 @@ metadata/_custom_type_script = "uid://51j4pv7l3d2u"
 script = ExtResource("1_qt3to")
 effect_text = "Move one space west."
 effects = Array[ExtResource("1_vqkh0")]([SubResource("Resource_da381")])
+replace = true
 card_name = "Move West"
+art = ExtResource("1_cvmi5")
 metadata/_custom_type_script = "uid://c2ctgqbjt5773"

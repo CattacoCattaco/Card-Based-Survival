@@ -12,6 +12,8 @@ extends Card
 @export var fight_deck: Array[ActionData]
 @export var movement_deck: Array[ActionData]
 
+@export var player_tag: CharacterTag
+
 var current_health: int
 var current_block: int
 var current_strength: int
@@ -19,6 +21,10 @@ var current_energy: int
 var current_money: int
 
 var in_target_mode: bool = false
+
+
+func show_player_color() -> void:
+	set_art_replace_color(play_zone.settings.get_player_color())
 
 
 func _load_data(new_data: CardData) -> void:
@@ -78,20 +84,35 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if in_target_mode:
-				for card in hand.cards:
+				for card: CharacterCard in hand.cards:
 					card.leave_target_mode()
 				
-				hand.play_zone.player_card.leave_target_mode()
+				play_zone.player_card.leave_target_mode()
 				
 				hand.target_found.emit(self)
 
 
 func die() -> void:
-	hand.play_zone.player_card.current_money += current_money
-	
-	hand.cards.erase(self)
-	
-	if not hand.cards:
-		hand.play_zone.fight.return_to_map()
+	if is_player():
+		pass
+	else:
+		hand.cards.erase(self)
+		
+		play_zone.player_card.current_money += current_money
+		
+		if not hand.cards:
+			play_zone.fight.return_to_map(true)
 	
 	queue_free()
+
+
+func is_player() -> bool:
+	return has_tag(player_tag)
+
+
+func has_tag(match_tag: CharacterTag) -> bool:
+	for present_tag: CharacterTag in data.tags:
+		if present_tag.inherits(match_tag):
+			return true
+	
+	return false

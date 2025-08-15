@@ -19,5 +19,6 @@ metadata/_custom_type_script = "uid://26vrrb5p28xd"
 script = ExtResource("5_50bhr")
 effect_text = "Deal damage equal to your strength plus two to target wooden card."
 effects = Array[ExtResource("1_uc4r7")]([SubResource("Resource_5dx7i")])
+replace = true
 card_name = "Wooden Axe"
 metadata/_custom_type_script = "uid://c2ctgqbjt5773"

@@ -18,7 +18,7 @@ func _init(p_direction: Direction = Direction.NORTH, p_amount: int = 1) -> void:
 
 
 func _resolve(action_card: ActionCard) -> void:
-	var map_BG: MapBG = action_card.hand.play_zone.map_BG
+	var map_BG: MapBG = action_card.play_zone.map_BG
 	
 	var move_func: Callable
 	match direction:
