@@ -9,6 +9,12 @@ const IRON := Vector2i(0, 32)
 const PLAYER := Vector2i(32, 32)
 const BAG := Vector2i(64, 32)
 const BEAR := Vector2i(96, 32)
+const GOLEM := Vector2i(0, 64)
+
+const ENEMIES: Array[Vector2i] = [
+	BEAR,
+	GOLEM,
+]
 
 const PINE_DATA: CharacterData = preload("res://card_data/character_data/objects/pine.tres")
 const OAK_DATA: CharacterData = preload("res://card_data/character_data/objects/oak.tres")
@@ -19,6 +25,8 @@ const IRON_DATA: CharacterData = preload(
 		"res://card_data/character_data/objects/iron_ore.tres")
 const BEAR_DATA: CharacterData = preload(
 		"res://card_data/character_data/enemy_characters/bear.tres")
+const GOLEM_DATA: CharacterData = preload(
+		"res://card_data/character_data/enemy_characters/golem.tres")
 
 var map_BG: MapBG
 
@@ -49,6 +57,8 @@ func move() -> void:
 func move_in_dir(direction: Vector2i) -> void:
 	if pos + direction == map_BG.player.pos:
 		do_event()
+		return
+	elif pos + direction in map_BG.objects:
 		return
 	
 	map_BG.objects.erase(pos)
@@ -86,5 +96,7 @@ func get_object_data() -> CharacterData:
 			return IRON_DATA
 		BEAR:
 			return BEAR_DATA
+		GOLEM:
+			return GOLEM_DATA
 	
 	return null

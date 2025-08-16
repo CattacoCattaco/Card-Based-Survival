@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=11 format=3 uid="uid://ddw32d3m0vsdh"]
+
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="1_k0p0c"]
+[ext_resource type="Resource" uid="uid://bjlyo131duohk" path="res://card_data/action_data/combat_actions/punch.tres" id="2_4lf0v"]
+[ext_resource type="Resource" uid="uid://cnwrqvqybg5ar" path="res://card_data/action_data/movement_actions/move_north.tres" id="3_vl08n"]
+[ext_resource type="Resource" uid="uid://cigifp8q57epv" path="res://card_data/action_data/movement_actions/move_east.tres" id="4_gsncr"]
+[ext_resource type="Resource" uid="uid://k6v3jfk17w1d" path="res://card_data/action_data/movement_actions/move_south.tres" id="5_wvlig"]
+[ext_resource type="Resource" uid="uid://bmm14iddl7i1p" path="res://card_data/action_data/movement_actions/move_west.tres" id="6_8rs07"]
+[ext_resource type="Script" uid="uid://c0dp7gr6vdogq" path="res://card_data/character_data/character_data.gd" id="7_ptv6g"]
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="8_eidyd"]
+[ext_resource type="Resource" uid="uid://bahbk7v0rwinn" path="res://card_data/character_data/character_tags/living/enemy/enemy.tres" id="9_4lf0v"]
+[ext_resource type="Resource" uid="uid://bl233fdeexe4v" path="res://card_data/character_data/character_tags/object/stone/stone.tres" id="10_vl08n"]
+
+[resource]
+script = ExtResource("7_ptv6g")
+health = 30
+block = 5
+strength = 3
+energy = 1
+money = 0
+tags = Array[ExtResource("8_eidyd")]([ExtResource("9_4lf0v"), ExtResource("10_vl08n")])
+fight_deck = Array[ExtResource("1_k0p0c")]([ExtResource("2_4lf0v"), ExtResource("2_4lf0v"), ExtResource("2_4lf0v"), ExtResource("2_4lf0v")])
+movement_deck = Array[ExtResource("1_k0p0c")]([ExtResource("3_vl08n"), ExtResource("4_gsncr"), ExtResource("5_wvlig"), ExtResource("6_8rs07")])
+card_name = "Golem"
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

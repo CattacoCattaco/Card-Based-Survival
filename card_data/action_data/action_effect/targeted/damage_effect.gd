@@ -18,10 +18,8 @@ func _resolve_with_target(action_card: ActionCard, targeted_character: Character
 	
 	var damage_amount: int = strength_amount * strength + base_amount
 	
-	print(damage_amount)
 	if damage_amount < 0:
 		targeted_character.current_health -= damage_amount
-		print(targeted_character.current_health)
 		
 		if targeted_character.current_health >= targeted_character.current_max_health:
 			targeted_character.current_health = targeted_character.current_max_health
@@ -39,7 +37,7 @@ func _resolve_with_target(action_card: ActionCard, targeted_character: Character
 
 func _resolve_as_enemy_card_with_target(enemy_card: CharacterCard,
 		targeted_character: CharacterCard) -> void:
-	var strength: int = enemy_card.play_zone.player_card.current_strength
+	var strength: int = enemy_card.current_strength
 	
 	var damage_amount: int = strength_amount * strength + base_amount
 	

@@ -38,5 +38,7 @@ func _advance_turn() -> void:
 		current_character_index = 0
 		
 		for character in turn_order:
+			if not character:
+				return
 			character.current_energy = character.current_max_energy
 			character.update_energy()

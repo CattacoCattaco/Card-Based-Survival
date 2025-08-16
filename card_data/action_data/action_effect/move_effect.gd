@@ -37,6 +37,8 @@ func _resolve(action_card: ActionCard) -> void:
 	for pos in map_BG.visible_objects:
 		var map_object: MapObject = map_BG.visible_objects[pos]
 		map_object.move()
+	
+	map_BG.decrease_countdown()
 
 
 func _resolve_as_enemy_object(enemy_object: MapObject) -> void:

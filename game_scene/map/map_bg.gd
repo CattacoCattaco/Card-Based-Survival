@@ -192,3 +192,34 @@ func get_adjusted_pos(tile_pos: Vector2i) -> Vector2i:
 
 func pos_visible(pos: Vector2i) -> bool:
 	return pos.x >= 0 and pos.y >= 0 and pos.x <= BOTTOM_RIGHT.x and pos.y <= BOTTOM_RIGHT.y
+
+
+func decrease_countdown() -> void:
+	enemy_summon_timer -= 1
+	if enemy_summon_timer == 0:
+		enemy_summon_timer = 3
+		var enemy_spawn_pos: Vector2i = player.pos
+		for i in range(randi_range(5, 9)):
+			enemy_spawn_pos += [
+				Vector2i(0, -1),
+				Vector2i(-1, 0),
+				Vector2i(0, 1),
+				Vector2i(1, 0),
+			].pick_random()
+		
+		objects[enemy_spawn_pos] = MapObject.ENEMIES.pick_random()
+		
+		var adjusted_pos: Vector2i = get_adjusted_pos(enemy_spawn_pos)
+		if pos_visible(adjusted_pos):
+			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
+			add_child(object)
+			visible_objects[enemy_spawn_pos] = object
+			
+			object.position = adjusted_pos
+			object.map_BG = self
+			object.pos = enemy_spawn_pos
+			object.set_sprite(objects[enemy_spawn_pos])
+			
+			var object_data: CharacterData = object.get_object_data()
+			if object_data:
+				object.movement_deck = object_data.movement_deck

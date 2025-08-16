@@ -100,7 +100,7 @@ func _gui_input(event: InputEvent) -> void:
 
 func die() -> void:
 	if is_player():
-		pass
+		play_zone.fight.return_to_map(false)
 	else:
 		hand.cards.erase(self)
 		

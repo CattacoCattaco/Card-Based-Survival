@@ -10,10 +10,14 @@ var attacked_object: MapObject
 
 
 func return_to_map(won: bool) -> void:
-	if won:
-		map_scene.map_bg.objects.erase(attacked_object.pos)
-		map_scene.map_bg.visible_objects.erase(attacked_object.pos)
-		attacked_object.queue_free()
+	if not won:
+		get_tree().root.add_child(preload("res://game_scene/loss/loss.tscn").instantiate())
+		queue_free()
+		return
+	
+	map_scene.map_bg.objects.erase(attacked_object.pos)
+	map_scene.map_bg.visible_objects.erase(attacked_object.pos)
+	attacked_object.queue_free()
 	
 	get_tree().root.add_child(map_scene)
 	
