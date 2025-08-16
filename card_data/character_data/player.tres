@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterData" load_steps=13 format=3 uid="uid://cc4712hvchri"]
+[gd_resource type="Resource" script_class="CharacterData" load_steps=14 format=3 uid="uid://cc4712hvchri"]
 
 [ext_resource type="Script" uid="uid://c0dp7gr6vdogq" path="res://card_data/character_data/character_data.gd" id="1_0k5dh"]
 [ext_resource type="Texture2D" uid="uid://d1hm8pr0o0jhb" path="res://card_data/character_data/art/player.png" id="1_2kswk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://cgvsy3tlhac6l" path="res://card_data/action_data/combat_actions/chop_wooden_axe.tres" id="4_6r5rv"]
 [ext_resource type="Resource" uid="uid://cvfdcfoy61o51" path="res://card_data/action_data/combat_actions/mine_wooden_pickaxe.tres" id="5_cg3rd"]
 [ext_resource type="Resource" uid="uid://cnwrqvqybg5ar" path="res://card_data/action_data/movement_actions/move_north.tres" id="6_lv447"]
+[ext_resource type="Resource" uid="uid://bu27wte2nsjmg" path="res://card_data/action_data/combat_actions/heal_wounds.tres" id="6_t7cqm"]
 [ext_resource type="Resource" uid="uid://cigifp8q57epv" path="res://card_data/action_data/movement_actions/move_east.tres" id="7_2gyrv"]
 [ext_resource type="Resource" uid="uid://k6v3jfk17w1d" path="res://card_data/action_data/movement_actions/move_south.tres" id="8_1k8dq"]
 [ext_resource type="Resource" uid="uid://bmm14iddl7i1p" path="res://card_data/action_data/movement_actions/move_west.tres" id="9_3367k"]
@@ -21,7 +22,7 @@ strength = 5
 energy = 2
 money = 3
 tags = Array[ExtResource("2_0otgf")]([ExtResource("3_2kswk")])
-fight_deck = Array[ExtResource("2_woem2")]([ExtResource("3_t7cqm"), ExtResource("3_t7cqm"), ExtResource("4_6r5rv"), ExtResource("5_cg3rd")])
+fight_deck = Array[ExtResource("2_woem2")]([ExtResource("3_t7cqm"), ExtResource("4_6r5rv"), ExtResource("5_cg3rd"), ExtResource("6_t7cqm")])
 movement_deck = Array[ExtResource("2_woem2")]([ExtResource("6_lv447"), ExtResource("7_2gyrv"), ExtResource("8_1k8dq"), ExtResource("9_3367k")])
 card_name = "Player"
 art = ExtResource("1_2kswk")

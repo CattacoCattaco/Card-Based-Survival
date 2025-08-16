@@ -24,6 +24,8 @@ var map_BG: MapBG
 
 var pos: Vector2i
 
+var movement_deck: Array[ActionData]
+
 
 func show_player_color() -> void:
 	set_art_replace_color(map_BG.map_control.settings.get_player_color())
@@ -38,17 +40,51 @@ func set_sprite(texture_pos: Vector2i) -> void:
 	texture.region.position = texture_pos as Vector2
 
 
+func move() -> void:
+	var action: ActionData = movement_deck.pick_random()
+	for effect: ActionEffect in action.effects:
+		effect._resolve_as_enemy_object(self)
+
+
+func move_in_dir(direction: Vector2i) -> void:
+	if pos + direction == map_BG.player.pos:
+		do_event()
+		return
+	
+	map_BG.objects.erase(pos)
+	if pos in map_BG.visible_objects:
+		map_BG.visible_objects.erase(pos)
+	
+	pos += direction
+	map_BG.objects[pos] = texture.region.position as Vector2i
+	
+	var new_adjusted_pos: Vector2i = map_BG.get_adjusted_pos(pos)
+	if map_BG.pos_visible(new_adjusted_pos):
+		map_BG.visible_objects[pos] = self
+		position = new_adjusted_pos
+	else:
+		queue_free()
+
+
 func do_event() -> void:
+	var object_data: CharacterData = get_object_data()
+	if object_data:
+		map_BG.map_control.load_fight_scene([object_data], self)
+
+
+func get_object_data() -> CharacterData:
 	match texture.region.position as Vector2i:
 		PINE:
-			map_BG.map_control.load_fight_scene([PINE_DATA], self)
+			return PINE_DATA
 		OAK:
-			map_BG.map_control.load_fight_scene([OAK_DATA], self)
+			return OAK_DATA
 		ROCK:
-			map_BG.map_control.load_fight_scene([ROCK_DATA], self)
+			return ROCK_DATA
 		GOLD:
-			map_BG.map_control.load_fight_scene([GOLD_DATA], self)
+			return GOLD_DATA
 		IRON:
-			map_BG.map_control.load_fight_scene([IRON_DATA], self)
+			return IRON_DATA
 		BEAR:
-			map_BG.map_control.load_fight_scene([BEAR_DATA], self)
+			return BEAR_DATA
+	
+	return null

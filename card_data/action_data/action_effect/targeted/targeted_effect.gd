@@ -18,7 +18,13 @@ func _init(p_targetable_tags: Array[CharacterTag] = [], p_tag_amount_needed: int
 func _resolve(action_card: ActionCard) -> void:
 	var enemy_holder: Hand = action_card.play_zone.enemy_holder
 	if targeted:
-		for target in get_valid_targets(enemy_holder, action_card.play_zone.player_card):
+		var valid_targets: Array[CharacterCard]
+		valid_targets = get_valid_targets(enemy_holder, action_card.play_zone.player_card)
+		
+		if not valid_targets:
+			return
+		
+		for target in valid_targets:
 			target.enter_target_mode()
 		
 		var targeted_character: CharacterCard = await enemy_holder.target_found
@@ -35,7 +41,10 @@ func _resolve_as_enemy_card(enemy_card: CharacterCard) -> void:
 		var valid_targets: Array[CharacterCard]
 		valid_targets = get_valid_targets(enemy_holder, enemy_card.play_zone.player_card)
 		
-		var target_player: bool = randf() < (1.0 - value) / 2.0
+		if not valid_targets:
+			return
+		
+		var target_player: bool = randf() < (1.0 -  value) / 2.0
 		for valid_target in valid_targets:
 			if valid_target in enemy_holder.cards:
 				if len(valid_targets) > 1 and target_player:

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=6 format=3 uid="uid://bu27wte2nsjmg"]
+
+[ext_resource type="Script" uid="uid://c0gtblaffcrid" path="res://card_data/action_data/action_effect/action_effect.gd" id="1_8o5c3"]
+[ext_resource type="Script" uid="uid://26vrrb5p28xd" path="res://card_data/action_data/action_effect/targeted/damage_effect.gd" id="2_tvj00"]
+[ext_resource type="Script" uid="uid://bvnim1j6r244p" path="res://card_data/character_data/character_tags/character_tag.gd" id="3_2tc5c"]
+[ext_resource type="Script" uid="uid://cskm55n57jk26" path="res://card_data/action_data/action_data.gd" id="4_s3p58"]
+
+[sub_resource type="Resource" id="Resource_5dx7i"]
+script = ExtResource("2_tvj00")
+base_amount = -4
+strength_amount = 0
+targetable_tags = Array[ExtResource("3_2tc5c")]([])
+tag_amount_needed = 0
+targeted = true
+value = 1.0
+metadata/_custom_type_script = "uid://26vrrb5p28xd"
+
+[resource]
+script = ExtResource("4_s3p58")
+effect_text = "Heal 4 damage from any target."
+effects = Array[ExtResource("1_8o5c3")]([SubResource("Resource_5dx7i")])
+replace = true
+card_name = "Cure Wounds"
+metadata/_custom_type_script = "uid://c2ctgqbjt5773"

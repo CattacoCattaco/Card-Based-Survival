@@ -33,3 +33,19 @@ func _resolve(action_card: ActionCard) -> void:
 	
 	for i in range(amount):
 		move_func.call()
+	
+	for pos in map_BG.visible_objects:
+		var map_object: MapObject = map_BG.visible_objects[pos]
+		map_object.move()
+
+
+func _resolve_as_enemy_object(enemy_object: MapObject) -> void:
+	match direction:
+		Direction.NORTH:
+			enemy_object.move_in_dir(Vector2i(0, -1) * amount)
+		Direction.EAST:
+			enemy_object.move_in_dir(Vector2i(1, 0) * amount)
+		Direction.SOUTH:
+			enemy_object.move_in_dir(Vector2i(0, 1) * amount)
+		Direction.WEST:
+			enemy_object.move_in_dir(Vector2i(-1, 0) * amount)

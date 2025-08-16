@@ -17,13 +17,22 @@ func _resolve_with_target(action_card: ActionCard, targeted_character: Character
 	var strength: int = action_card.play_zone.player_card.current_strength
 	
 	var damage_amount: int = strength_amount * strength + base_amount
-	damage_amount -= targeted_character.current_block
 	
-	if damage_amount > 0:
+	print(damage_amount)
+	if damage_amount < 0:
 		targeted_character.current_health -= damage_amount
-	
-	if targeted_character.current_health <= 0:
-		targeted_character.die()
+		print(targeted_character.current_health)
+		
+		if targeted_character.current_health >= targeted_character.current_max_health:
+			targeted_character.current_health = targeted_character.current_max_health
+	else:
+		damage_amount -= targeted_character.current_block
+		
+		if damage_amount > 0:
+			targeted_character.current_health -= damage_amount
+		
+		if targeted_character.current_health <= 0:
+			targeted_character.die()
 	
 	targeted_character.update_health()
 
@@ -33,12 +42,19 @@ func _resolve_as_enemy_card_with_target(enemy_card: CharacterCard,
 	var strength: int = enemy_card.play_zone.player_card.current_strength
 	
 	var damage_amount: int = strength_amount * strength + base_amount
-	damage_amount -= targeted_character.current_block
 	
-	if damage_amount > 0:
+	if damage_amount < 0:
 		targeted_character.current_health -= damage_amount
-	
-	if targeted_character.current_health <= 0:
-		targeted_character.die()
+		
+		if targeted_character.current_health >= targeted_character.current_max_health:
+			targeted_character.current_health = targeted_character.current_max_health
+	else:
+		damage_amount -= targeted_character.current_block
+		
+		if damage_amount > 0:
+			targeted_character.current_health -= damage_amount
+		
+		if targeted_character.current_health <= 0:
+			targeted_character.die()
 	
 	targeted_character.update_health()

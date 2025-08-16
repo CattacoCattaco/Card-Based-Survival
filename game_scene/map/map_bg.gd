@@ -10,6 +10,7 @@ const BOTTOM_RIGHT := Vector2i(512, 192)
 
 var player: MapObject
 var visible_objects: Dictionary[Vector2i, MapObject] = {}
+var enemy_summon_timer: int = 3
 
 
 func _ready() -> void:
@@ -32,7 +33,7 @@ func display() -> void:
 	visible_objects = {}
 	
 	for pos in objects:
-		var adjusted_pos: Vector2i = (pos - player.pos) * 32 + CENTER
+		var adjusted_pos: Vector2i = get_adjusted_pos(pos)
 		
 		if pos_visible(adjusted_pos):
 			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
@@ -43,6 +44,10 @@ func display() -> void:
 			object.map_BG = self
 			object.pos = pos
 			object.set_sprite(objects[pos])
+			
+			var object_data: CharacterData = object.get_object_data()
+			if object_data:
+				object.movement_deck = object_data.movement_deck
 
 
 func move_up() -> void:
@@ -62,7 +67,7 @@ func move_up() -> void:
 			visible_objects.erase(pos)
 	
 	for pos in objects:
-		var adjusted_pos: Vector2i = (pos - player.pos) * 32 + CENTER
+		var adjusted_pos: Vector2i = get_adjusted_pos(pos)
 		
 		if adjusted_pos.y == 0 and pos_visible(adjusted_pos):
 			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
@@ -73,6 +78,10 @@ func move_up() -> void:
 			object.map_BG = self
 			object.pos = pos
 			object.set_sprite(objects[pos])
+			
+			var object_data: CharacterData = object.get_object_data()
+			if object_data:
+				object.movement_deck = object_data.movement_deck
 
 
 func move_left() -> void:
@@ -92,7 +101,7 @@ func move_left() -> void:
 			visible_objects.erase(pos)
 	
 	for pos in objects:
-		var adjusted_pos: Vector2i = (pos - player.pos) * 32 + CENTER
+		var adjusted_pos: Vector2i = get_adjusted_pos(pos)
 		
 		if adjusted_pos.x == 0 and pos_visible(adjusted_pos):
 			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
@@ -103,6 +112,10 @@ func move_left() -> void:
 			object.map_BG = self
 			object.pos = pos
 			object.set_sprite(objects[pos])
+			
+			var object_data: CharacterData = object.get_object_data()
+			if object_data:
+				object.movement_deck = object_data.movement_deck
 
 
 func move_down() -> void:
@@ -122,7 +135,7 @@ func move_down() -> void:
 			visible_objects.erase(pos)
 	
 	for pos in objects:
-		var adjusted_pos: Vector2i = (pos - player.pos) * 32 + CENTER
+		var adjusted_pos: Vector2i = get_adjusted_pos(pos)
 		
 		if adjusted_pos.y == BOTTOM_RIGHT.y and pos_visible(adjusted_pos):
 			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
@@ -133,6 +146,10 @@ func move_down() -> void:
 			object.map_BG = self
 			object.pos = pos
 			object.set_sprite(objects[pos])
+			
+			var object_data: CharacterData = object.get_object_data()
+			if object_data:
+				object.movement_deck = object_data.movement_deck
 
 
 func move_right() -> void:
@@ -152,7 +169,7 @@ func move_right() -> void:
 			visible_objects.erase(pos)
 	
 	for pos in objects:
-		var adjusted_pos: Vector2i = (pos - player.pos) * 32 + CENTER
+		var adjusted_pos: Vector2i = get_adjusted_pos(pos)
 		
 		if adjusted_pos.x == BOTTOM_RIGHT.x and pos_visible(adjusted_pos):
 			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
@@ -163,6 +180,14 @@ func move_right() -> void:
 			object.map_BG = self
 			object.pos = pos
 			object.set_sprite(objects[pos])
+			
+			var object_data: CharacterData = object.get_object_data()
+			if object_data:
+				object.movement_deck = object_data.movement_deck
+
+
+func get_adjusted_pos(tile_pos: Vector2i) -> Vector2i:
+	return (tile_pos - player.pos) * 32 + CENTER
 
 
 func pos_visible(pos: Vector2i) -> bool:
