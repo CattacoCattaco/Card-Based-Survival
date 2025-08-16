@@ -1,6 +1,9 @@
 class_name PlayZone
 extends Control
 
+@warning_ignore("unused_signal")
+signal action_played()
+
 @export var frame_sprite: Sprite2D
 @export var label: Label
 
@@ -10,6 +13,7 @@ extends Control
 @export var fight: Fight
 @export var settings: Settings
 
+var is_player_turn: bool = true
 var drag_hapenning: bool = false
 var drag_preview: ActionCard
 

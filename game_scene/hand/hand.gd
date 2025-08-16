@@ -3,6 +3,7 @@ extends HBoxContainer
 
 @warning_ignore("unused_signal")
 signal target_found(target: Card)
+signal enemies_loaded()
 
 enum Mode {
 	MAP_ACTIONS,
@@ -27,6 +28,7 @@ func _ready() -> void:
 			draw_hand()
 		Mode.ENEMIES:
 			draw_cards(len(deck_manager.enemies))
+			enemies_loaded.emit()
 		Mode.SETTINGS_ACTIONS:
 			draw_settings_hand()
 

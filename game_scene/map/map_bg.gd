@@ -34,14 +34,15 @@ func display() -> void:
 	for pos in objects:
 		var adjusted_pos: Vector2i = (pos - player.pos) * 32 + CENTER
 		
-		var object: MapObject = MAP_OBJECT_SCENE.instantiate()
-		add_child(object)
-		visible_objects[pos] = object
-		
-		object.position = adjusted_pos
-		object.map_BG = self
-		object.pos = pos
-		object.set_sprite(objects[pos])
+		if pos_visible(adjusted_pos):
+			var object: MapObject = MAP_OBJECT_SCENE.instantiate()
+			add_child(object)
+			visible_objects[pos] = object
+			
+			object.position = adjusted_pos
+			object.map_BG = self
+			object.pos = pos
+			object.set_sprite(objects[pos])
 
 
 func move_up() -> void:

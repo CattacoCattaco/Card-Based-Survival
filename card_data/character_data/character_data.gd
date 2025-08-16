@@ -9,10 +9,13 @@ extends CardData
 
 @export var tags: Array[CharacterTag] = []
 
+@export var fight_deck: Array[ActionData] = []
+@export var movement_deck: Array[ActionData] = []
+
 
 func _init(p_card_name: String = "", p_art := Texture2D.new(), p_health: int = 50, p_block: int = 0,
-		p_strength: int = 5, p_energy: int = 1, p_money: int = 3, p_tags: Array[CharacterTag] = []
-		) -> void:
+		p_strength: int = 5, p_energy: int = 1, p_money: int = 3, p_tags: Array[CharacterTag] = [],
+		p_fight_deck: Array[ActionData] = [], p_movement_deck: Array[ActionData] = []) -> void:
 	super(p_card_name, p_art)
 	
 	health = p_health
@@ -22,3 +25,6 @@ func _init(p_card_name: String = "", p_art := Texture2D.new(), p_health: int = 5
 	money = p_money
 	
 	tags = p_tags
+	
+	fight_deck = p_fight_deck
+	movement_deck = p_movement_deck

@@ -61,9 +61,12 @@ func play() -> void:
 		await effect._resolve(self)
 	
 	queue_free()
+	
 	match hand.mode:
 		Hand.Mode.MAP_ACTIONS, Hand.Mode.FIGHT_ACTIONS:
 			if data.replace:
 				hand.draw_cards(1)
 		Hand.Mode.SETTINGS_ACTIONS:
 			hand.draw_settings_hand()
+	
+	play_zone.action_played.emit()

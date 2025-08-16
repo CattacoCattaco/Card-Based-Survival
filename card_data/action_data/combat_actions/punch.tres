@@ -12,6 +12,7 @@ strength_amount = 1
 targetable_tags = Array[ExtResource("3_5dx7i")]([])
 tag_amount_needed = 0
 targeted = true
+value = -1
 metadata/_custom_type_script = "uid://26vrrb5p28xd"
 
 [resource]

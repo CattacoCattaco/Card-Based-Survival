@@ -9,15 +9,17 @@ extends Card
 @export var energy_label: Label
 @export var money_label: Label
 
-@export var fight_deck: Array[ActionData]
-@export var movement_deck: Array[ActionData]
-
 @export var player_tag: CharacterTag
 
+var fight_deck: Array[ActionData]
+var movement_deck: Array[ActionData]
+
 var current_health: int
+var current_max_health: int
 var current_block: int
 var current_strength: int
 var current_energy: int
+var current_max_energy: int
 var current_money: int
 
 var in_target_mode: bool = false
@@ -34,10 +36,14 @@ func _load_data(new_data: CardData) -> void:
 	super(new_data)
 	
 	current_health = data.health
+	current_max_health = data.health
 	current_block = data.block
 	current_strength = data.strength
 	current_energy = data.energy
+	current_max_energy = data.energy
 	current_money = data.money
+	fight_deck = data.fight_deck
+	movement_deck = data.movement_deck
 	
 	update_stats()
 
@@ -104,6 +110,26 @@ func die() -> void:
 			play_zone.fight.return_to_map(true)
 	
 	queue_free()
+
+
+func do_turn() -> void:
+	if is_player():
+		play_zone.is_player_turn = true
+		
+		while current_energy > 0:
+			await play_zone.action_played
+			current_energy -= 1
+			update_energy()
+		
+		play_zone.is_player_turn = false
+	else:
+		await get_tree().create_timer(0.3).timeout
+		
+		var action: ActionData = fight_deck.pick_random()
+		for effect: ActionEffect in action.effects:
+			effect._resolve_as_enemy_card(self)
+		
+		await get_tree().create_timer(0.3).timeout
 
 
 func is_player() -> bool:
